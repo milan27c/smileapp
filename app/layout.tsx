@@ -4,6 +4,19 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "HCM Smiles",
   description: "Havelock City Mall Loyalty App",
+  viewport: "width=device-width, initial-scale=1, viewport-fit=cover",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "HCM Smiles",
+  },
+  manifest: "/manifest.json",
+  icons: [
+    {
+      rel: "icon",
+      url: "/favicon.ico",
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -13,6 +26,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full">
+      <head>
+        <meta name="theme-color" content="#9728B8" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-title" content="HCM Smiles" />
+      </head>
       <body
         className="flex items-center justify-center"
         style={{
@@ -22,9 +42,20 @@ export default function RootLayout({
           margin: 0,
         }}
       >
-        {/* iPhone 16 Pro Device Frame */}
+        {/* Mobile View - Full screen on mobile devices */}
         <div
-          className="relative flex-shrink-0"
+          className="w-full h-screen lg:hidden"
+          style={{
+            background: "#000",
+            overflow: "hidden",
+          }}
+        >
+          {children}
+        </div>
+
+        {/* iPhone 16 Pro Device Frame — Hidden on mobile, shown on desktop */}
+        <div
+          className="relative flex-shrink-0 hidden lg:flex"
           style={{
             width: "425px",
             maxHeight: "calc(100vh - 24px)",
@@ -81,7 +112,7 @@ export default function RootLayout({
                 }}
               />
 
-              {/* Screen Content */}
+                  {/* Screen Content */}
               <div className="relative w-full h-full overflow-hidden">
                 {children}
               </div>
