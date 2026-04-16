@@ -302,21 +302,8 @@ export default function PointsPage() {
               backgroundSize: "cover",
               backgroundPosition: "center",
               minHeight: "100px",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              textAlign: "center",
             }}
-          >
-            {/* Text Content */}
-            <h3 style={{ fontSize: "16px", fontWeight: 700, color: "#fff", margin: 0, marginBottom: "4px" }}>
-              Unlock Platinum Rewards!
-            </h3>
-            <p style={{ fontSize: "12px", color: "rgba(255, 255, 255, 0.9)", lineHeight: 1.4, margin: 0 }}>
-              Explore exclusive benefits and perks
-            </p>
-          </button>
+          />
         </div>
       </div>
     </div>
