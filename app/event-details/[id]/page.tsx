@@ -108,7 +108,6 @@ export default function EventDetailsPage() {
 
   return (
     <div className="flex flex-col h-full" style={{ background: "#F5F5F7", fontFamily: "'Inter', sans-serif" }}>
-      <StatusBar light={true} />
 
       {/* Hero Image */}
       <div style={{ position: "relative", height: "240px", flexShrink: 0, overflow: "hidden" }}>

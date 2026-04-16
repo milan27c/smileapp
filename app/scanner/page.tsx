@@ -89,7 +89,6 @@ export default function ScannerPage() {
 
   return (
     <div className="flex flex-col h-full bg-black">
-      <StatusBar light={true} />
 
       {/* Top nav */}
       <div

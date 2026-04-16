@@ -36,7 +36,6 @@ function SpinSuccessContent() {
         animation: "fade-in 0.35s ease both",
       }}
     >
-      <StatusBar light={true} />
 
       {/* Floating particles (only on win) */}
       {isWin && PARTICLES.map((p, i) => (

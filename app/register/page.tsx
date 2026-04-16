@@ -29,7 +29,6 @@ export default function RegisterPage() {
 
   return (
     <div className="flex flex-col h-full overflow-hidden" style={{ background: "#fff" }}>
-      <StatusBar light={true} />
 
       {/* Photo hero header */}
       <div className="relative flex flex-col" style={{ height: "252px", flexShrink: 0, borderBottomLeftRadius: "28px", borderBottomRightRadius: "28px", overflow: "hidden" }}>

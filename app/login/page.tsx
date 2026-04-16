@@ -62,7 +62,6 @@ export default function LoginPage() {
 
   return (
     <div className="flex flex-col h-full overflow-hidden" style={{ background: "#fff" }}>
-      <StatusBar light={true} />
 
       {/* Photo hero header */}
       <div
