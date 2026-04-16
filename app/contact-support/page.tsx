@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import StatusBar from "@/app/components/StatusBar";
 import { ChevronLeft, Phone, Mail, Clock, MessageCircle } from "lucide-react";
 
@@ -250,6 +251,83 @@ export default function ContactSupportPage() {
             >
               Open in Maps
             </button>
+          </div>
+        </div>
+
+        {/* Follow Us Section */}
+        <div className="px-5 pb-6">
+          <h2 style={{ fontSize: "14px", fontWeight: 700, color: "#0E0E10", marginBottom: "12px" }}>
+            Follow Us
+          </h2>
+          <div
+            style={{
+              background: "#fff",
+              borderRadius: "16px",
+              border: "1px solid #F0F0F0",
+              padding: "20px",
+            }}
+          >
+            <p style={{ fontSize: "13px", color: "#52525B", marginBottom: "16px" }}>
+              Stay connected with Havelock City Mall Smiles on social media for updates and exclusive offers
+            </p>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "12px" }}>
+              {[
+                { name: "Instagram", url: "https://instagram.com/havelocksmiles", image: "/images/socialmedia/instagram.png" },
+                { name: "Facebook", url: "https://facebook.com/havelocksmiles", image: "/images/socialmedia/facebook.png" },
+                { name: "WhatsApp", url: "https://wa.me/94111234567", image: "/images/socialmedia/whatsapp.png" },
+                { name: "TikTok", url: "https://tiktok.com/@havelocksmiles", image: "/images/socialmedia/tiktok.png" },
+              ].map((social) => (
+                <button
+                  key={social.name}
+                  onClick={() => window.open(social.url, "_blank")}
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "8px",
+                    padding: "16px",
+                    borderRadius: "12px",
+                    background: "#F5F5F7",
+                    border: "1.5px solid #E4E4E7",
+                    cursor: "pointer",
+                    transition: "all 0.2s",
+                  }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.background = "#fff";
+                    e.currentTarget.style.borderColor = "#9728B8";
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.background = "#F5F5F7";
+                    e.currentTarget.style.borderColor = "#E4E4E7";
+                  }}
+                >
+                  <div
+                    style={{
+                      width: "48px",
+                      height: "48px",
+                      borderRadius: "12px",
+                      overflow: "hidden",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      position: "relative",
+                    }}
+                  >
+                    <Image
+                      src={social.image}
+                      alt={social.name}
+                      width={48}
+                      height={48}
+                      style={{ objectFit: "cover" }}
+                    />
+                  </div>
+                  <span style={{ fontSize: "11px", fontWeight: 600, color: "#0E0E10", textAlign: "center" }}>
+                    {social.name}
+                  </span>
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </div>
