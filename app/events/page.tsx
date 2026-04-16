@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { ChevronLeft } from "lucide-react";
+import { Home as HomeIcon, Gift, Compass, Calendar, User } from "lucide-react";
 
 
 
@@ -66,16 +66,14 @@ export default function EventsPage() {
     <div className="flex flex-col h-full" style={{ background: "#F5F5F7", fontFamily: "'Inter', sans-serif" }}>
 
       {/* App Bar */}
-      <div className="flex-shrink-0 flex items-center px-5"
+      <div className="flex-shrink-0 flex items-center justify-between px-5"
         style={{ paddingTop: "12px", paddingBottom: "8px", minHeight: "56px", borderBottom: "1px solid #F0F0F0", background: "#fff" }}>
-        <button onClick={() => router.push("/home")} className="flex items-center gap-1">
-          <ChevronLeft size={22} style={{ color: "#0E0E10" }} />
-          <span style={{ fontSize: "16px", fontWeight: 700, color: "#0E0E10" }}>Events</span>
-        </button>
+        <h1 style={{ fontSize: "16px", fontWeight: 700, color: "#0E0E10", margin: 0 }}>Events</h1>
+        <div style={{ width: "40px" }} />
       </div>
 
       {/* Events List */}
-      <div className="flex-1 overflow-y-auto px-4 pt-4 pb-6">
+      <div className="flex-1 overflow-y-auto px-4 pt-4 pb-[192px]">
         {/* Hero Banner Card */}
         <div style={{
           position: "relative",
@@ -178,6 +176,62 @@ export default function EventsPage() {
             </button>
           ))}
         </div>
+      </div>
+
+      {/* ── Bottom Navigation ── */}
+      <div
+        className="absolute bottom-0 left-0 right-0 flex items-center"
+        style={{
+          height: "72px",
+          background: "#fff",
+          borderTop: "1px solid #F0F0F0",
+          boxShadow: "0 -4px 20px rgba(0,0,0,0.06)",
+        }}
+      >
+        {[
+          { icon: HomeIcon, label: "Home", active: false },
+          { icon: Gift, label: "Rewards", active: false },
+          { icon: Compass, label: "Explore", active: false },
+          { icon: Calendar, label: "Events", active: true },
+          { icon: User, label: "Profile", active: false },
+        ].map(({ icon: Icon, label, active }) => (
+          <button
+            key={label}
+            onClick={() => {
+              if (label === "Home") router.push("/home");
+              if (label === "Rewards") router.push("/rewards");
+              if (label === "Explore") router.push("/explore");
+              if (label === "Profile") router.push("/profile");
+            }}
+            className="flex-1 flex flex-col items-center justify-center gap-1"
+          >
+            <div
+              className="flex items-center justify-center"
+              style={{
+                width: "36px",
+                height: "28px",
+                borderRadius: "9999px",
+                background: active ? "rgba(151,40,184,0.12)" : "transparent",
+                transition: "background 0.2s",
+              }}
+            >
+              <Icon
+                size={20}
+                style={{ color: active ? "#9728B8" : "#B3B3B4" }}
+                strokeWidth={active ? 2.5 : 1.75}
+              />
+            </div>
+            <span
+              className="font-semibold"
+              style={{
+                fontSize: "10px",
+                color: active ? "#9728B8" : "#B3B3B4",
+              }}
+            >
+              {label}
+            </span>
+          </button>
+        ))}
       </div>
     </div>
   );

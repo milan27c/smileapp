@@ -203,8 +203,8 @@ Platinum: gradient(#9728B8 → #F002AF), accent=#9728B8
 - **Border & Background:** borderBottom=1px solid #F0F0F0, background=#fff (or transparent on photo screens)
 - **Title Font:** fontSize=16px, fontWeight=700 (bold)
 - **Home Screen:** left logo (72×72), right icons (spinwheel + notification bell with badge)
-- **Main Screens** (Rewards): title text only, no back button, footer navigation included, right spacer (40px)
-- **Detail/Modal Screens** (Parking, Settings, Contact Support): back button (ChevronLeft 22px, black #0E0E10) + title (16px, weight 700, black #0E0E10), right spacer (40px), no footer
+- **Main Screens** (Home, Rewards, Explore, Events, Profile): title text only, no back button, footer navigation included, right spacer (40px)
+- **Detail/Modal Screens** (Points, Settings, Contact Support, etc.): back button (ChevronLeft 22px, black #0E0E10) + title (16px, weight 700, black #0E0E10), right spacer (40px), no footer
 
 ---
 
@@ -427,3 +427,4 @@ app/
 | 2026-04-21 | **Scroll Padding Fixed:** Scrollable containers updated with pb-[222px] class (150px extra clearance + 72px footer height) to prevent content from being hidden behind fixed footer navigation. Logout buttons and other bottom content now fully visible |
 | 2026-04-21 | **Diamond Icon Z-Index Fix:** Home page app bar z-index set to 20 to prevent Daily Login Bonus diamond icon (z-10) from overlapping app bar when scrolling. Ensures proper visual hierarchy |
 | 2026-04-22 | **Bottom Navigation Redesign:** Replaced Parking icon with Events in footer navigation. Parking remains accessible via Home page quick access (Parking button). Events navigation provides convenient access to browse all events. |
+| 2026-04-22 | **Events Page Promoted to Major Screen:** Events page now treated as a major screen with footer navigation (Events active). Back button removed from app bar. Title-only app bar with right spacer. Scrollable content with pb-[192px] for footer clearance. |
