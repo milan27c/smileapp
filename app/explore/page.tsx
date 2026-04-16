@@ -100,7 +100,7 @@ export default function ExplorePage() {
       </div>
 
       {/* Scrollable Content */}
-      <div className="flex-1 overflow-y-auto" style={{ paddingBottom: "0" }}>
+      <div className="flex-1 overflow-y-auto pb-[192px]" style={{ paddingBottom: "0" }}>
         {/* Search + Filter */}
         <div className="flex items-center gap-3 px-5 pt-4 pb-3">
           <form onSubmit={handleSearch} className="flex-1 relative">

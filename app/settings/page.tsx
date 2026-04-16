@@ -32,7 +32,7 @@ export default function SettingsPage() {
       </div>
 
       {/* Scrollable Content */}
-      <div className="flex-1 overflow-y-auto" style={{ paddingBottom: "24px" }}>
+      <div className="flex-1 overflow-y-auto pb-[192px]" style={{ paddingBottom: "24px" }}>
         {/* Notifications Section */}
         <div className="px-5 pt-5 pb-4">
           <h2 style={{ fontSize: "14px", fontWeight: 700, color: "#0E0E10", marginBottom: "12px" }}>

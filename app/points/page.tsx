@@ -45,7 +45,7 @@ export default function PointsPage() {
       </div>
 
       {/* Scrollable Content */}
-      <div className="flex-1 overflow-y-auto no-scrollbar pb-[222px] pb-[222px]" style={{ paddingBottom: "24px" }}>
+      <div className="flex-1 overflow-y-auto no-scrollbar pb-[192px] pb-[192px]" style={{ paddingBottom: "24px" }}>
         {/* Points Hero Section */}
         <div className="px-4 pt-5 pb-2">
           <div

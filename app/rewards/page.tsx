@@ -121,7 +121,7 @@ function RewardsContent() {
       </div>
 
       {/* Rewards List */}
-      <div className="flex-1 overflow-y-auto no-scrollbar pb-[222px] px-4 pt-4" style={{ paddingBottom: "100px" }}>
+      <div className="flex-1 overflow-y-auto no-scrollbar pb-[192px] px-4 pt-4" style={{ paddingBottom: "100px" }}>
         {filtered.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-20">
             <p style={{ fontSize: "14px", color: "#B3B3B4" }}>No rewards in this category</p>

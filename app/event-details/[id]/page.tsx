@@ -129,7 +129,7 @@ export default function EventDetailsPage() {
       </div>
 
       {/* Scrollable content */}
-      <div className="flex-1 overflow-y-auto" style={{ paddingBottom: "110px" }}>
+      <div className="flex-1 overflow-y-auto pb-[192px]" style={{ paddingBottom: "110px" }}>
         {/* Title card */}
         <div style={{ background: "#fff", padding: "20px 20px 16px", borderBottom: "1px solid #F0F0F0" }}>
           <h1 style={{ fontSize: "18px", fontWeight: 800, color: "#0E0E10", lineHeight: 1.3, marginBottom: "12px" }}>

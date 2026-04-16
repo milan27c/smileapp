@@ -410,7 +410,7 @@ export default function ShopDetailPage() {
       </div>
 
       {/* Scrollable Content */}
-      <div className="flex-1 overflow-y-auto">
+      <div className="flex-1 overflow-y-auto pb-[192px]">
         {/* Hero Image */}
         <div
           style={{

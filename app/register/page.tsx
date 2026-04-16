@@ -64,7 +64,7 @@ export default function RegisterPage() {
 
       {/* White card */}
       <div
-        className="flex-1 bg-white overflow-y-auto no-scrollbar pb-[222px] px-5 pb-6"
+        className="flex-1 bg-white overflow-y-auto no-scrollbar pb-[192px] px-5 pb-6"
         style={{
           borderTopLeftRadius: "28px",
           borderTopRightRadius: "28px",
