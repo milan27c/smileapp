@@ -186,32 +186,16 @@ export default function PlatinumPage() {
                   </div>
 
                   {/* Details */}
-                  <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between", minWidth: 0 }}>
-                    <div style={{ minWidth: 0 }}>
-                      <p style={{ fontSize: "12px", fontWeight: 600, color: "#0E0E10", marginBottom: "6px", lineHeight: 1.2, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
-                        {offer.title}
-                      </p>
-                      <p style={{ fontSize: "10px", color: "#52525B", marginBottom: "4px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
-                        📍 {offer.store}
-                      </p>
-                      <p style={{ fontSize: "10px", color: "#52525B", marginBottom: "6px" }}>
-                        📅 {offer.validTill}
-                      </p>
-                    </div>
-                    <button style={{
-                      height: "28px",
-                      borderRadius: "8px",
-                      border: "1.5px solid #9728B8",
-                      background: "#fff",
-                      color: "#9728B8",
-                      fontSize: "11px",
-                      fontWeight: 600,
-                      cursor: "pointer",
-                      transition: "all 0.2s",
-                      padding: "0 10px",
-                    }}>
-                      Redeem
-                    </button>
+                  <div style={{ flex: 1, display: "flex", flexDirection: "column", minWidth: 0 }}>
+                    <p style={{ fontSize: "12px", fontWeight: 600, color: "#0E0E10", marginBottom: "6px", lineHeight: 1.2, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                      {offer.title}
+                    </p>
+                    <p style={{ fontSize: "10px", color: "#52525B", marginBottom: "4px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                      📍 {offer.store}
+                    </p>
+                    <p style={{ fontSize: "10px", color: "#52525B" }}>
+                      📅 {offer.validTill}
+                    </p>
                   </div>
                 </div>
               ))}
