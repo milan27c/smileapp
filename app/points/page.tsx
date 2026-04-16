@@ -291,53 +291,29 @@ export default function PointsPage() {
         <div className="px-4 pb-6">
           <button
             onClick={() => router.push("/platinum")}
-            className="w-full text-left"
+            className="w-full text-left relative overflow-hidden"
             style={{
-              background: "#fff",
               borderRadius: "16px",
-              padding: "16px",
+              padding: "24px 20px",
               border: "none",
               cursor: "pointer",
               transition: "all 0.2s",
-              boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
+              backgroundImage: "url(/images/platinummember.png)",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              minHeight: "140px",
               display: "flex",
-              alignItems: "center",
-              gap: "16px",
+              flexDirection: "column",
+              justifyContent: "center",
             }}
           >
-            {/* Card Image */}
-            <div
-              className="flex-shrink-0 relative overflow-hidden"
-              style={{
-                width: "80px",
-                height: "80px",
-                borderRadius: "12px",
-              }}
-            >
-              <Image
-                src="/images/platinummember.png"
-                alt="Platinum Member"
-                fill
-                style={{ objectFit: "cover" }}
-              />
-            </div>
-
             {/* Text Content */}
-            <div className="flex-1 flex flex-col justify-center gap-1">
-              <h3 style={{ fontSize: "15px", fontWeight: 700, color: "#0E0E10", margin: 0 }}>
-                Unlock Platinum
-              </h3>
-              <p style={{ fontSize: "13px", color: "#52525B", lineHeight: 1.4, margin: 0 }}>
-                Explore exclusive benefits and perks available for Platinum members
-              </p>
-            </div>
-
-            {/* Chevron */}
-            <div style={{ flexShrink: 0, color: "#9728B8" }}>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <polyline points="9 18 15 12 9 6" />
-              </svg>
-            </div>
+            <h3 style={{ fontSize: "20px", fontWeight: 700, color: "#fff", margin: 0, marginBottom: "8px" }}>
+              Unlock Platinum Rewards!
+            </h3>
+            <p style={{ fontSize: "14px", color: "rgba(255, 255, 255, 0.9)", lineHeight: 1.5, margin: 0 }}>
+              Explore exclusive benefits and perks available for Platinum members
+            </p>
           </button>
         </div>
       </div>
