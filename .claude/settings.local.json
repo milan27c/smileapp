@@ -6,7 +6,10 @@
       "Bash(head -50 /Users/test/smileapp/app/pay-with-points/[id]/page.tsx)",
       "Bash(head -50 /Users/test/smileapp/app/challenge-details/[id]/page.tsx)",
       "Bash(head -50 /Users/test/smileapp/app/event-details/[id]/page.tsx)",
-      "Bash(find app *)"
+      "Bash(find app *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)"
     ]
   }
 }

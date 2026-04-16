@@ -65,8 +65,8 @@ export default function ExplorePage() {
 
   const handleCategoryClick = (cat: string) => {
     const params = new URLSearchParams();
-    if (cat !== "All") params.set("category", cat);
-    if (activeFloor !== "All") params.set("floor", activeFloor);
+    if (cat !== "All") params.set("categories", cat);
+    if (activeFloors.length > 0) params.set("floors", activeFloors.join(","));
     if (search) params.set("search", search);
     router.push(`/explore/shops?${params.toString()}`);
   };
@@ -74,8 +74,8 @@ export default function ExplorePage() {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     const params = new URLSearchParams();
-    if (activeCategory !== "All") params.set("category", activeCategory);
-    if (activeFloor !== "All") params.set("floor", activeFloor);
+    if (activeCategories.length > 0) params.set("categories", activeCategories.join(","));
+    if (activeFloors.length > 0) params.set("floors", activeFloors.join(","));
     if (search) params.set("search", search);
     router.push(`/explore/shops?${params.toString()}`);
   };
