@@ -95,6 +95,77 @@ export default function PlatinumPage() {
           </p>
         </div>
 
+        {/* Exclusive Offers - Only for Platinum */}
+        {activeTier === "platinum" && (
+          <div style={{ marginBottom: "24px" }}>
+            <h3 style={{ fontSize: "16px", fontWeight: 600, color: "#0E0E10", marginBottom: "12px" }}>
+              🎉 Exclusive Offers
+            </h3>
+            <div className="flex gap-3 overflow-x-auto no-scrollbar" style={{ paddingBottom: "4px" }}>
+              {EXCLUSIVE_OFFERS.map((offer) => (
+                <div key={offer.id} style={{
+                  background: "#fff",
+                  borderRadius: "16px",
+                  border: "1px solid #F0F0F0",
+                  overflow: "hidden",
+                  display: "flex",
+                  gap: "14px",
+                  padding: "14px",
+                  flexShrink: 0,
+                  width: "291px",
+                }}>
+                  {/* Image */}
+                  <div style={{
+                    position: "relative",
+                    width: "80px",
+                    height: "80px",
+                    flexShrink: 0,
+                    borderRadius: "12px",
+                    overflow: "hidden",
+                    background: "#FAFAFA",
+                  }}>
+                    <Image
+                      src={offer.img}
+                      alt={offer.title}
+                      fill
+                      style={{ objectFit: "cover" }}
+                    />
+                  </div>
+
+                  {/* Details */}
+                  <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between", minWidth: 0 }}>
+                    <div style={{ minWidth: 0 }}>
+                      <p style={{ fontSize: "12px", fontWeight: 600, color: "#0E0E10", marginBottom: "6px", lineHeight: 1.2, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                        {offer.title}
+                      </p>
+                      <p style={{ fontSize: "10px", color: "#52525B", marginBottom: "4px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                        📍 {offer.store}
+                      </p>
+                      <p style={{ fontSize: "10px", color: "#52525B", marginBottom: "6px" }}>
+                        📅 {offer.validTill}
+                      </p>
+                    </div>
+                    <button style={{
+                      height: "28px",
+                      borderRadius: "8px",
+                      border: "1.5px solid #9728B8",
+                      background: "#fff",
+                      color: "#9728B8",
+                      fontSize: "11px",
+                      fontWeight: 600,
+                      cursor: "pointer",
+                      transition: "all 0.2s",
+                      padding: "0 10px",
+                    }}>
+                      Redeem
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
         {/* Benefits Card */}
         <div style={{
           background: "#fff",

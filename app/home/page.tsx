@@ -335,7 +335,7 @@ export default function HomePage() {
           >
             <div className="flex items-center gap-4">
               {/* Text — white */}
-              <div className="flex-1 min-w-0" style={{ marginLeft: "40px" }}>
+              <div className="flex-1 min-w-0" style={{ marginLeft: "50px" }}>
                 <p className="font-bold text-white" style={{ fontSize: "14px" }}>
                   Daily Login Bonus
                 </p>
@@ -343,9 +343,6 @@ export default function HomePage() {
                   Claim your reward
                 </p>
               </div>
-
-              {/* Arrow — white */}
-              <ChevronRight size={20} style={{ color: "rgba(255,255,255,0.8)" }} />
             </div>
           </button>
         </div>
