@@ -8,6 +8,16 @@ import { Home as HomeIcon, Gift, Compass, Calendar, User } from "lucide-react";
 
 const EVENTS = [
   {
+    id: 0,
+    img: "/images/slider3.png",
+    title: "Grand Year-End Celebration",
+    date: "Dec 28, 2025",
+    location: "Havelock City Mall",
+    price: "Rs. 5,000 per person",
+    ages: "All ages",
+    points: 800,
+  },
+  {
     id: 1,
     img: "/images/events/events1.png",
     title: "A Fun Filled Christmas Party — Just For Kids",

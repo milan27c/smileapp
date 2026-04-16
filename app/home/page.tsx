@@ -146,6 +146,29 @@ export default function HomePage() {
                 style={{ objectFit: "cover" }}
               />
             </button>
+
+            {/* Slider 3 — Clickable card for event */}
+            <button
+              onClick={() => router.push("/event-details/0")}
+              className="relative flex-shrink-0 overflow-hidden"
+              style={{
+                borderRadius: "20px",
+                width: "320px",
+                height: "192px",
+                border: "none",
+                cursor: "pointer",
+                background: "none",
+                padding: "0",
+                transition: "transform 0.2s",
+              }}
+            >
+              <Image
+                src="/images/slider3.png"
+                alt="Event"
+                fill
+                style={{ objectFit: "cover" }}
+              />
+            </button>
           </div>
         </div>
 
@@ -265,6 +288,7 @@ export default function HomePage() {
           >
             <div className="flex gap-3" style={{ width: "fit-content" }}>
               {[
+                { id: 0, img: "/images/slider3.png", title: "Grand Year-End Celebration", date: "Dec 28, 2025" },
                 { id: 1, img: "/images/events/events1.png", title: "A Fun Filled Christmas Party", date: "Dec 13, 2025" },
                 { id: 2, img: "/images/events/events2.png", title: "New Year Countdown Gala",    date: "Dec 31, 2025" },
               ].map((ev) => (

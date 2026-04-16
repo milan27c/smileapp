@@ -7,6 +7,23 @@ import { ChevronLeft } from "lucide-react";
 
 
 const EVENTS: Record<string, any> = {
+  "0": {
+    id: 0,
+    img: "/images/slider3.png",
+    title: "Grand Year-End Celebration",
+    description: "Join us for the most spectacular year-end celebration at Havelock City Mall! Experience live performances, exclusive shopping deals, gourmet dining experiences, and grand prize draws. Celebrate the end of the year with your loved ones in a magical festive atmosphere.",
+    location: "Havelock City Mall",
+    date: "Dec 28, 2025",
+    price: 5000,
+    ages: "All ages",
+    points: 800,
+    sessions: [
+      { name: "Session 1", time: "10:00 AM" },
+      { name: "Session 2", time: "06:00 PM" },
+    ],
+    activities: ["Live Performances", "Shopping Deals", "Gourmet Dining", "Prize Draws", "Entertainment"],
+    contact: "076 382 2826",
+  },
   "1": {
     id: 1,
     img: "/images/events/events1.png",
