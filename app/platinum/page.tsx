@@ -81,7 +81,7 @@ export default function PlatinumPage() {
       </div>
 
       {/* Content */}
-      <div className="flex-1 overflow-y-auto px-5 pt-5">
+      <div className="flex-1 overflow-y-auto px-5 pt-5 pb-[192px]">
 
         {/* Header */}
         <div style={{ marginBottom: "20px" }}>

@@ -37,7 +37,7 @@ export default function PromoDetailPage() {
       </div>
 
       {/* Scrollable Content */}
-      <div className="flex-1 overflow-y-auto pb-6">
+      <div className="flex-1 overflow-y-auto pb-[192px]">
         {/* Hero Banner */}
         <div className="px-5 pt-4 pb-4">
           <div

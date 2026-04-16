@@ -23,7 +23,7 @@ export default function WonderHowPage() {
       </div>
 
       {/* Scrollable Content */}
-      <div className="flex-1 overflow-y-auto px-5 pt-5">
+      <div className="flex-1 overflow-y-auto px-5 pt-5 pb-[192px]">
 
         {/* Hero Image */}
         <div style={{

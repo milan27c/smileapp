@@ -87,7 +87,7 @@ export default function SpinWheelPage() {
       </div>
 
       {/* Content */}
-      <div className="flex-1 flex flex-col items-center justify-between px-5 pb-10">
+      <div className="flex-1 flex flex-col items-center justify-between px-5 pb-[200px]">
 
         {/* Subtitle */}
         <p

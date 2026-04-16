@@ -37,7 +37,7 @@ export default function ChallengesPage() {
       </div>
 
       {/* Scrollable Content */}
-      <div className="flex-1 overflow-y-auto px-5 pt-5">
+      <div className="flex-1 overflow-y-auto px-5 pt-5 pb-[192px]">
 
         {/* Daily Check In Bonus Card */}
         <button
