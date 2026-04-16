@@ -45,14 +45,14 @@ export default function ParkingPage() {
   // with the initial empty state before the load effect has populated it.
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const [vehicles, setVehicles]   = useState<Vehicle[]>([]);
-  const [session,  setSession]    = useState<ParkingSession | null>(null);
-  const [letters,  setLetters]    = useState("");
-  const [numbers,  setNumbers]    = useState("");
-  const [scanning, setScanning]   = useState(false);
-  const [scanStep, setScanStep]   = useState(0);
-  const [showForm, setShowForm]   = useState(false);
-  const [tick,     setTick]       = useState(0);
+  const [vehicles, setVehicles] = useState<Vehicle[]>([]);
+  const [session, setSession] = useState<ParkingSession | null>(null);
+  const [letters, setLetters] = useState("");
+  const [numbers, setNumbers] = useState("");
+  const [scanning, setScanning] = useState(false);
+  const [scanStep, setScanStep] = useState(0);
+  const [showForm, setShowForm] = useState(false);
+  const [tick, setTick] = useState(0);
 
   // ── 1. Load persisted data on mount ──────────────────────────────────────
   useEffect(() => {
@@ -63,7 +63,7 @@ export default function ParkingPage() {
         if (Array.isArray(v)) setVehicles(v);
         if (s) setSession(s);
       }
-    } catch {}
+    } catch { }
     // Only set isLoaded AFTER state is queued — this triggers a second render
     // where the save effect sees the real data, not the initial empty values.
     setIsLoaded(true);
@@ -74,7 +74,7 @@ export default function ParkingPage() {
     if (!isLoaded) return;
     try {
       localStorage.setItem("smileapp_parking", JSON.stringify({ vehicles, session }));
-    } catch {}
+    } catch { }
   }, [vehicles, session, isLoaded]);
 
   // ── 3. Live tick every second ─────────────────────────────────────────────
@@ -97,7 +97,8 @@ export default function ParkingPage() {
 
   // ── Add vehicle handler ───────────────────────────────────────────────────
   const handleAdd = () => {
-    const ltr = letters.toUpperCase().replace(/[^A-Z]/g, "").slice(0, 3);
+    // Accept the full format with letters, numbers, and Sinhala characters
+    const ltr = letters.trim();
     const num = numbers.replace(/\D/g, "").slice(0, 4);
     if (!ltr || !num) return;
 
@@ -208,29 +209,54 @@ export default function ParkingPage() {
 
   // ── Plate inputs (reused in both forms) ───────────────────────────────────
   const plateInputs = (
-    <div style={{ display: "flex", gap: "10px", marginBottom: "14px" }}>
-      <div style={{ flex: 3 }}>
-        <p style={{ fontSize: "12px", fontWeight: 600, color: "#52525B", marginBottom: "6px" }}>Letters</p>
-        <input
-          value={letters}
-          onChange={(e) => setLetters(e.target.value.toUpperCase().replace(/[^A-Z]/g, "").slice(0, 3))}
-          placeholder="ABC"
-          maxLength={3}
-          style={plateInputStyle}
-        />
+    <>
+      <div style={{ display: "flex", gap: "10px", marginBottom: "14px" }}>
+        <div style={{ flex: 3 }}>
+          <p style={{ fontSize: "12px", fontWeight: 600, color: "#52525B", marginBottom: "6px" }}>Letters</p>
+          <input
+            value={letters}
+            onChange={(e) => {
+              const input = e.target.value;
+              // Allow A-Z, 0-9, and Sinhala characters (U+0D80-U+0DFF)
+              const filtered = input.replace(/[^A-Z0-9\u0D80-\u0DFF\/\s-]/g, "").slice(0, 12);
+              setLetters(filtered);
+            }}
+            placeholder="ABC / 202 / 02ශ්‍රී"
+            maxLength={12}
+            style={{
+              ...plateInputStyle,
+              fontSize: "16px",
+            }}
+          />
+          <style>{`
+            input[placeholder="ABC / 202 / 02ශ්‍රී"]::placeholder {
+              font-size: 13px;
+              letter-spacing: 0.5px;
+              font-weight: 500;
+              color: #B3B3B4;
+            }
+          `}</style>
+        </div>
+        <div style={{ flex: 2 }}>
+          <p style={{ fontSize: "12px", fontWeight: 600, color: "#52525B", marginBottom: "6px" }}>Numbers</p>
+          <input
+            value={numbers}
+            onChange={(e) => setNumbers(e.target.value.replace(/\D/g, "").slice(0, 4))}
+            placeholder="0891"
+            maxLength={4}
+            inputMode="numeric"
+            style={plateInputStyle}
+          />
+        </div>
       </div>
-      <div style={{ flex: 2 }}>
-        <p style={{ fontSize: "12px", fontWeight: 600, color: "#52525B", marginBottom: "6px" }}>Numbers</p>
-        <input
-          value={numbers}
-          onChange={(e) => setNumbers(e.target.value.replace(/\D/g, "").slice(0, 4))}
-          placeholder="1234"
-          maxLength={4}
-          inputMode="numeric"
-          style={plateInputStyle}
-        />
+      <div style={{ background: "#FAFAFA", borderRadius: "10px", padding: "8px 12px", marginBottom: "12px" }}>
+        <p style={{ fontSize: "11px", color: "#52525B", lineHeight: 1.5, margin: 0 }}>
+          <span style={{ fontWeight: 600, color: "#0E0E10" }}>Example:</span> ABC 0891 / 60-1921 / 02ශ්‍රී 0121
+          <br />
+          <span style={{ color: "#B3B3B4", fontSize: "10px" }}>✓ All Sri Lankan vehicle formats supported</span>
+        </p>
       </div>
-    </div>
+    </>
   );
 
   // ── No vehicles yet ───────────────────────────────────────────────────────
@@ -269,11 +295,11 @@ export default function ParkingPage() {
           }}
         >
           {[
-            { icon: HomeIcon, label: "Home",    route: "/home" },
-            { icon: Gift,     label: "Rewards", route: "/rewards" },
-            { icon: Compass,  label: "Explore", route: "/explore" },
-            { icon: Car,      label: "Parking", route: "/parking", active: true },
-            { icon: User,     label: "Profile", route: "/profile" },
+            { icon: HomeIcon, label: "Home", route: "/home" },
+            { icon: Gift, label: "Rewards", route: "/rewards" },
+            { icon: Compass, label: "Explore", route: "/explore" },
+            { icon: Car, label: "Parking", route: "/parking", active: true },
+            { icon: User, label: "Profile", route: "/profile" },
           ].map(({ icon: Icon, label, route, active }) => (
             <button
               key={label}
@@ -468,11 +494,11 @@ export default function ParkingPage() {
         }}
       >
         {[
-          { icon: HomeIcon, label: "Home",    route: "/home" },
-          { icon: Gift,     label: "Rewards", route: "/rewards" },
-          { icon: Compass,  label: "Explore", route: "/explore" },
-          { icon: Car,      label: "Parking", route: "/parking", active: true },
-          { icon: User,     label: "Profile", route: "/profile" },
+          { icon: HomeIcon, label: "Home", route: "/home" },
+          { icon: Gift, label: "Rewards", route: "/rewards" },
+          { icon: Compass, label: "Explore", route: "/explore" },
+          { icon: Car, label: "Parking", route: "/parking", active: true },
+          { icon: User, label: "Profile", route: "/profile" },
         ].map(({ icon: Icon, label, route, active }) => (
           <button
             key={label}

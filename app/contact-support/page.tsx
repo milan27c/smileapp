@@ -2,45 +2,12 @@
 
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { ChevronLeft, Phone, Mail, Clock, MessageCircle } from "lucide-react";
+import { ChevronLeft, Phone, Mail, Clock } from "lucide-react";
 
 export default function ContactSupportPage() {
   const router = useRouter();
 
-  const contactChannels = [
-    {
-      icon: Phone,
-      title: "Hotline",
-      value: "+94 11 123 4567",
-      description: "Call us for immediate assistance",
-      action: () => window.location.href = "tel:+94111234567",
-      buttonText: "Call Now",
-    },
-    {
-      icon: Mail,
-      title: "Email",
-      value: "support@havelocksmiles.com",
-      description: "Send us an email anytime",
-      action: () => window.location.href = "mailto:support@havelocksmiles.com",
-      buttonText: "Send Email",
-    },
-    {
-      icon: MessageCircle,
-      title: "Live Chat",
-      value: "Available on app",
-      description: "Chat with our support team",
-      action: () => {},
-      buttonText: "Start Chat",
-    },
-    {
-      icon: Clock,
-      title: "Hours",
-      value: "9:00 AM - 9:00 PM",
-      description: "Saturday to Thursday",
-      action: () => {},
-      buttonText: "View More",
-    },
-  ];
+  const contactChannels = []; // Removed - using redesigned compact layout instead
 
   return (
     <div className="flex flex-col h-full" style={{ background: "#F5F5F7", fontFamily: "'Inter', sans-serif" }}>
@@ -66,93 +33,161 @@ export default function ContactSupportPage() {
       {/* Scrollable Content */}
       <div className="flex-1 overflow-y-auto pb-[192px]" style={{ paddingBottom: "24px" }}>
         {/* Hero Section */}
-        <div className="px-5 pt-5 pb-4">
+        <div className="px-5 pt-4 pb-3">
           <div
             style={{
               background: "linear-gradient(135deg, #9728B8 0%, #F002AF 100%)",
-              borderRadius: "16px",
-              padding: "24px",
+              borderRadius: "14px",
+              padding: "16px 20px",
               color: "#fff",
               textAlign: "center",
             }}
           >
-            <h2 style={{ fontSize: "22px", fontWeight: 700, marginBottom: "8px" }}>
+            <h2 style={{ fontSize: "18px", fontWeight: 700, marginBottom: "4px" }}>
               How can we help?
             </h2>
-            <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.85)", lineHeight: 1.5 }}>
-              Havelock City Mall Support Team is ready to assist you with any questions or concerns
+            <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.85)", lineHeight: 1.3, whiteSpace: "nowrap" }}>
+              Support Team ready to assist
             </p>
           </div>
         </div>
 
-        {/* Contact Channels */}
-        <div className="px-5 pb-4">
+        {/* Contact Channels - Redesigned */}
+        <div className="px-5 pb-6">
           <div className="flex flex-col gap-3">
-            {contactChannels.map((channel) => {
-              const IconComponent = channel.icon;
-              return (
-                <div
-                  key={channel.title}
-                  style={{
-                    background: "#fff",
-                    borderRadius: "16px",
-                    border: "1px solid #F0F0F0",
-                    padding: "16px",
-                  }}
-                >
-                  <div className="flex items-start gap-3 mb-3">
-                    <div
-                      style={{
-                        width: "40px",
-                        height: "40px",
-                        borderRadius: "12px",
-                        background: "#F5F5F7",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        flexShrink: 0,
-                      }}
-                    >
-                      <IconComponent size={20} style={{ color: "#9728B8" }} />
-                    </div>
-                    <div className="flex-1">
-                      <h3 style={{ fontSize: "14px", fontWeight: 700, color: "#0E0E10", marginBottom: "2px" }}>
-                        {channel.title}
-                      </h3>
-                      <p style={{ fontSize: "13px", fontWeight: 600, color: "#9728B8", marginBottom: "4px" }}>
-                        {channel.value}
-                      </p>
-                      <p style={{ fontSize: "12px", color: "#B3B3B4" }}>
-                        {channel.description}
-                      </p>
-                    </div>
-                  </div>
-                  <button
-                    onClick={channel.action}
-                    style={{
-                      width: "100%",
-                      height: "40px",
-                      borderRadius: "10px",
-                      background: "#9728B8",
-                      color: "#fff",
-                      fontSize: "13px",
-                      fontWeight: 600,
-                      border: "none",
-                      cursor: "pointer",
-                      transition: "all 0.2s",
-                    }}
-                    onMouseOver={(e) => {
-                      e.currentTarget.style.background = "#7D1F96";
-                    }}
-                    onMouseOut={(e) => {
-                      e.currentTarget.style.background = "#9728B8";
-                    }}
-                  >
-                    {channel.buttonText}
-                  </button>
-                </div>
-              );
-            })}
+            {/* Hotline - Compact */}
+            <div
+              style={{
+                background: "#fff",
+                borderRadius: "14px",
+                border: "1px solid #F0F0F0",
+                padding: "14px 16px",
+                display: "flex",
+                alignItems: "center",
+                gap: "12px",
+              }}
+            >
+              <div
+                style={{
+                  width: "32px",
+                  height: "32px",
+                  borderRadius: "10px",
+                  background: "#F5F5F7",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexShrink: 0,
+                }}
+              >
+                <Phone size={16} style={{ color: "#9728B8" }} />
+              </div>
+              <div className="flex-1">
+                <p style={{ fontSize: "12px", color: "#B3B3B4", margin: 0, marginBottom: "2px" }}>Hotline</p>
+                <p style={{ fontSize: "14px", fontWeight: 600, color: "#0E0E10", margin: 0 }}>+94 11 123 4567</p>
+              </div>
+              <button
+                onClick={() => window.location.href = "tel:+94111234567"}
+                style={{
+                  width: "40px",
+                  height: "40px",
+                  borderRadius: "50%",
+                  background: "#9728B8",
+                  color: "#fff",
+                  border: "none",
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexShrink: 0,
+                  transition: "all 0.2s",
+                }}
+              >
+                <Phone size={18} />
+              </button>
+            </div>
+
+            {/* Email - Compact */}
+            <div
+              style={{
+                background: "#fff",
+                borderRadius: "14px",
+                border: "1px solid #F0F0F0",
+                padding: "14px 16px",
+                display: "flex",
+                alignItems: "center",
+                gap: "12px",
+              }}
+            >
+              <div
+                style={{
+                  width: "32px",
+                  height: "32px",
+                  borderRadius: "10px",
+                  background: "#F5F5F7",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexShrink: 0,
+                }}
+              >
+                <Mail size={16} style={{ color: "#9728B8" }} />
+              </div>
+              <div className="flex-1">
+                <p style={{ fontSize: "12px", color: "#B3B3B4", margin: 0, marginBottom: "2px" }}>Email</p>
+                <p style={{ fontSize: "14px", fontWeight: 600, color: "#0E0E10", margin: 0 }}>support@havelocksmiles.com</p>
+              </div>
+              <button
+                onClick={() => window.location.href = "mailto:support@havelocksmiles.com"}
+                style={{
+                  width: "40px",
+                  height: "40px",
+                  borderRadius: "50%",
+                  background: "#9728B8",
+                  color: "#fff",
+                  border: "none",
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexShrink: 0,
+                  transition: "all 0.2s",
+                }}
+              >
+                <Mail size={18} />
+              </button>
+            </div>
+
+            {/* 24/7 Support */}
+            <div
+              style={{
+                background: "#fff",
+                borderRadius: "14px",
+                border: "1px solid #F0F0F0",
+                padding: "14px 16px",
+                display: "flex",
+                alignItems: "center",
+                gap: "12px",
+              }}
+            >
+              <div
+                style={{
+                  width: "32px",
+                  height: "32px",
+                  borderRadius: "10px",
+                  background: "#F5F5F7",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexShrink: 0,
+                }}
+              >
+                <Clock size={16} style={{ color: "#9728B8" }} />
+              </div>
+              <div>
+                <p style={{ fontSize: "12px", color: "#B3B3B4", margin: 0, marginBottom: "2px" }}>Support Hours</p>
+                <p style={{ fontSize: "14px", fontWeight: 600, color: "#63DBAE", margin: 0 }}>24/7 Available</p>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -268,7 +303,7 @@ export default function ContactSupportPage() {
             <p style={{ fontSize: "13px", color: "#52525B", marginBottom: "16px" }}>
               Stay connected with Havelock City Mall Smiles on social media for updates and exclusive offers
             </p>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "12px" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "10px" }}>
               {[
                 { name: "Instagram", url: "https://instagram.com/havelocksmiles", image: "/images/socialmedia/instagram.png" },
                 { name: "Facebook", url: "https://facebook.com/havelocksmiles", image: "/images/socialmedia/facebook.png" },
@@ -283,8 +318,8 @@ export default function ContactSupportPage() {
                     flexDirection: "column",
                     alignItems: "center",
                     justifyContent: "center",
-                    gap: "8px",
-                    padding: "16px",
+                    gap: "6px",
+                    padding: "12px 8px",
                     borderRadius: "12px",
                     background: "#F5F5F7",
                     border: "1.5px solid #E4E4E7",
@@ -302,9 +337,9 @@ export default function ContactSupportPage() {
                 >
                   <div
                     style={{
-                      width: "48px",
-                      height: "48px",
-                      borderRadius: "12px",
+                      width: "36px",
+                      height: "36px",
+                      borderRadius: "10px",
                       overflow: "hidden",
                       display: "flex",
                       alignItems: "center",
@@ -315,12 +350,12 @@ export default function ContactSupportPage() {
                     <Image
                       src={social.image}
                       alt={social.name}
-                      width={48}
-                      height={48}
+                      width={36}
+                      height={36}
                       style={{ objectFit: "cover" }}
                     />
                   </div>
-                  <span style={{ fontSize: "11px", fontWeight: 600, color: "#0E0E10", textAlign: "center" }}>
+                  <span style={{ fontSize: "9px", fontWeight: 600, color: "#0E0E10", textAlign: "center", lineHeight: 1.2 }}>
                     {social.name}
                   </span>
                 </button>

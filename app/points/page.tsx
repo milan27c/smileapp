@@ -122,7 +122,7 @@ export default function PointsPage() {
                     780
                   </span>
                   <span className="text-white/70 font-medium" style={{ fontSize: "14px" }}>
-                    Points
+                    Available Points
                   </span>
                 </div>
 
@@ -151,7 +151,7 @@ export default function PointsPage() {
                   Progress to Platinum
                 </p>
                 <p className="text-white/80" style={{ fontSize: "11px" }}>
-                  780 / 1,000
+                  4250/5000
                 </p>
               </div>
               <div
@@ -160,7 +160,7 @@ export default function PointsPage() {
               >
                 <div
                   style={{
-                    width: "78%",
+                    width: "85%",
                     height: "100%",
                     borderRadius: "9999px",
                     background: "linear-gradient(90deg, #FED955, #FA9E1A)",
@@ -169,7 +169,7 @@ export default function PointsPage() {
                 />
               </div>
               <p className="text-white/70" style={{ fontSize: "10px" }}>
-                220 more points to unlock Platinum
+                750 more points to unlock Platinum
               </p>
             </div>
           </div>
@@ -269,7 +269,7 @@ export default function PointsPage() {
                         className="font-bold"
                         style={{
                           fontSize: "14px",
-                          color: tx.points.startsWith("+") ? "#63DBAE" : "#9728B8",
+                          color: tx.points.startsWith("+") ? "#27AE60" : "#DC2626",
                         }}
                       >
                         {tx.points} Points
@@ -287,23 +287,57 @@ export default function PointsPage() {
           })()}
         </div>
 
-        {/* Platinum Membership Button */}
+        {/* Platinum Membership Card */}
         <div className="px-4 pb-6">
           <button
             onClick={() => router.push("/platinum")}
-            className="w-full font-medium"
+            className="w-full text-left"
             style={{
-              height: "48px",
-              borderRadius: "12px",
-              fontSize: "15px",
-              background: "#9728B8",
-              color: "white",
+              background: "#fff",
+              borderRadius: "16px",
+              padding: "16px",
               border: "none",
               cursor: "pointer",
               transition: "all 0.2s",
+              boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
+              display: "flex",
+              alignItems: "center",
+              gap: "16px",
             }}
           >
-            Explore Platinum Membership Perks
+            {/* Card Image */}
+            <div
+              className="flex-shrink-0 relative overflow-hidden"
+              style={{
+                width: "80px",
+                height: "80px",
+                borderRadius: "12px",
+              }}
+            >
+              <Image
+                src="/images/platinummember.png"
+                alt="Platinum Member"
+                fill
+                style={{ objectFit: "cover" }}
+              />
+            </div>
+
+            {/* Text Content */}
+            <div className="flex-1 flex flex-col justify-center gap-1">
+              <h3 style={{ fontSize: "15px", fontWeight: 700, color: "#0E0E10", margin: 0 }}>
+                Unlock Platinum
+              </h3>
+              <p style={{ fontSize: "13px", color: "#52525B", lineHeight: 1.4, margin: 0 }}>
+                Explore exclusive benefits and perks available for Platinum members
+              </p>
+            </div>
+
+            {/* Chevron */}
+            <div style={{ flexShrink: 0, color: "#9728B8" }}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </div>
           </button>
         </div>
       </div>

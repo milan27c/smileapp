@@ -221,7 +221,7 @@ export default function HomePage() {
                 {/* Points */}
                 <div className="flex items-baseline gap-2 mb-1">
                   <span className="text-white font-extrabold" style={{ fontSize: "44px", lineHeight: 1, letterSpacing: "-1px" }}>780</span>
-                  <span className="text-white/70 font-medium" style={{ fontSize: "14px" }}>Points</span>
+                  <span className="text-white/70 font-medium" style={{ fontSize: "14px" }}>Available Points</span>
                 </div>
                 {/* Expiry */}
                 <p style={{ fontSize: "10px", color: "#FFB3B3" }}>265 Points expire Jan 31, 2026</p>
@@ -236,12 +236,12 @@ export default function HomePage() {
             <div className="relative z-10" style={{ padding: "10px 20px 16px 20px" }}>
               <div className="flex items-center justify-between mb-1.5">
                 <p className="text-white/80 font-medium" style={{ fontSize: "11px" }}>Progress to Platinum</p>
-                <p className="text-white/80" style={{ fontSize: "11px" }}>780 / 1,000</p>
+                <p className="text-white/80" style={{ fontSize: "11px" }}>4250/5000</p>
               </div>
               <div className="w-full mb-1.5" style={{ height: "6px", borderRadius: "9999px", background: "rgba(255,255,255,0.2)" }}>
-                <div style={{ width: "78%", height: "100%", borderRadius: "9999px", background: "linear-gradient(90deg, #FED955, #FA9E1A)", boxShadow: "0 0 10px rgba(254,217,85,0.4)" }} />
+                <div style={{ width: "85%", height: "100%", borderRadius: "9999px", background: "linear-gradient(90deg, #FED955, #FA9E1A)", boxShadow: "0 0 10px rgba(254,217,85,0.4)" }} />
               </div>
-              <p className="text-white/70" style={{ fontSize: "10px" }}>220 more points to unlock Platinum</p>
+              <p className="text-white/70" style={{ fontSize: "10px" }}>750 more points to unlock Platinum</p>
             </div>
           </button>
         </div>

@@ -481,10 +481,10 @@ export default function ProfilePage() {
           </p>
           <div className="flex gap-3">
             {[
-              { name: "WhatsApp", icon: "💬", color: "#25D366" },
-              { name: "Facebook", icon: "f", color: "#1877F2" },
-              { name: "Instagram", icon: "📷", color: "#E1306C" },
-              { name: "Twitter", icon: "𝕏", color: "#000000" },
+              { name: "WhatsApp", image: "/images/socialmedia/whatsapp.png", color: "#25D366" },
+              { name: "Facebook", image: "/images/socialmedia/facebook.png", color: "#1877F2" },
+              { name: "Instagram", image: "/images/socialmedia/instagram.png", color: "#E1306C" },
+              { name: "TikTok", image: "/images/socialmedia/tiktok.png", color: "#000000" },
             ].map((social) => (
               <button
                 key={social.name}
@@ -494,7 +494,7 @@ export default function ProfilePage() {
                     WhatsApp: `https://wa.me/?text=${encodeURIComponent(text)}`,
                     Facebook: `https://www.facebook.com/sharer/sharer.php?u=https://smileapp.hcm`,
                     Instagram: `instagram://`,
-                    Twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`,
+                    TikTok: `https://tiktok.com/@havelocksmiles`,
                   };
                   if (social.name === "Instagram") {
                     window.location.href = urls[social.name];
@@ -506,19 +506,33 @@ export default function ProfilePage() {
                   flex: 1,
                   height: "48px",
                   borderRadius: "12px",
-                  background: social.color,
-                  color: "#fff",
-                  border: "none",
+                  background: "#F5F5F7",
+                  border: "1.5px solid #E4E4E7",
                   cursor: "pointer",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  fontSize: "20px",
-                  fontWeight: 600,
+                  overflow: "hidden",
+                  position: "relative",
+                  transition: "all 0.2s",
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.background = "#fff";
+                  e.currentTarget.style.borderColor = social.color;
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.background = "#F5F5F7";
+                  e.currentTarget.style.borderColor = "#E4E4E7";
                 }}
                 title={social.name}
               >
-                {social.icon}
+                <Image
+                  src={social.image}
+                  alt={social.name}
+                  width={24}
+                  height={24}
+                  style={{ objectFit: "contain" }}
+                />
               </button>
             ))}
           </div>

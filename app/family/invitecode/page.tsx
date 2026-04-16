@@ -290,40 +290,41 @@ export default function InviteCodePage() {
             <span style={{ fontSize: "17px", fontWeight: 700, color: "#0E0E10" }}>Share via</span>
           </div>
 
-          <div style={{ display: "flex", justifyContent: "space-between", gap: "8px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "12px" }}>
             {SOCIAL_PLATFORMS.map((p) => (
               <button
                 key={p.name}
                 onClick={() => handleShare(p.name)}
                 className="flex flex-col items-center gap-2"
-                style={{ flex: 1, background: "none", border: "none", cursor: "pointer", transition: "all 0.15s" }}
+                style={{ background: "none", border: "none", cursor: "pointer", transition: "all 0.15s" }}
                 onMouseOver={(e) => {
-                  e.currentTarget.style.transform = "scale(1.05)";
+                  e.currentTarget.style.transform = "scale(1.08)";
                 }}
                 onMouseOut={(e) => {
                   e.currentTarget.style.transform = "scale(1)";
                 }}
               >
                 <div style={{
-                  width: "52px",
-                  height: "52px",
-                  borderRadius: "16px",
+                  width: "44px",
+                  height: "44px",
+                  borderRadius: "12px",
+                  background: "#F5F5F7",
+                  border: "1.5px solid #E4E4E7",
                   overflow: "hidden",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  boxShadow: "0 4px 12px rgba(0,0,0,0.12)",
                   position: "relative",
                 }}>
                   <Image
                     src={p.image}
                     alt={p.name}
-                    width={52}
-                    height={52}
-                    style={{ objectFit: "cover" }}
+                    width={28}
+                    height={28}
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
-                <span style={{ fontSize: "10px", fontWeight: 600, color: "#52525B" }}>{p.name}</span>
+                <span style={{ fontSize: "9px", fontWeight: 600, color: "#52525B", textAlign: "center" }}>{p.name}</span>
               </button>
             ))}
           </div>
