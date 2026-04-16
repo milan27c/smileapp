@@ -2,7 +2,7 @@ export default function StatusBar({ light = false }: { light?: boolean }) {
   const color = light ? "#fff" : "#0E0E10";
   return (
     <div
-      className="absolute top-0 left-0 right-0 z-40"
+      className="absolute top-0 left-0 right-0 z-40 hidden lg:block"
       style={{ height: "54px", pointerEvents: "none" }}
     >
       {/* Time — left */}

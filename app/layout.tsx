@@ -34,20 +34,29 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="HCM Smiles" />
       </head>
       <body
-        className="flex items-center justify-center"
+        className="flex items-center justify-center lg:p-3 lg:bg-gradient-to-br lg:from-[#1C1C1E] lg:to-[#2C2C2E]"
         style={{
           background: "linear-gradient(135deg, #1C1C1E 0%, #2C2C2E 100%)",
-          padding: "12px",
+          padding: 0,
           minHeight: "100vh",
           margin: 0,
+          overflow: "hidden",
         }}
       >
         {/* Mobile View - Full screen on mobile devices */}
         <div
-          className="w-full h-screen lg:hidden"
+          className="w-screen h-screen lg:hidden"
           style={{
             background: "#000",
             overflow: "hidden",
+            padding: 0,
+            margin: 0,
+            display: "block",
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
           }}
         >
           {children}
@@ -62,7 +71,7 @@ export default function RootLayout({
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            transform: "scale(0.8)",
+            transform: "scale(0.85)",
             transformOrigin: "center",
           }}
         >
