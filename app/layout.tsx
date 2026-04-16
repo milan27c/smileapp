@@ -43,7 +43,7 @@ export default function RootLayout({
       >
         {/* App Container - Full screen on mobile, mobile-sized and fitted on desktop */}
         <div
-          className="w-full h-screen lg:w-[393px] lg:h-screen flex flex-col"
+          className="w-full h-screen lg:w-[393px] lg:h-auto lg:my-[5%] lg:rounded-2xl flex flex-col"
           style={{
             background: "#000",
             overflow: "hidden",
