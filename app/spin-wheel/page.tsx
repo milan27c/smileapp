@@ -4,7 +4,6 @@ import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { ChevronLeft } from "lucide-react";
-import StatusBar from "@/app/components/StatusBar";
 
 
 
@@ -75,7 +74,6 @@ export default function SpinWheelPage() {
         overflow: "hidden",
       }}
     >
-      <StatusBar />
 
       {/* App Bar */}
       <div

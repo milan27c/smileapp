@@ -3,7 +3,6 @@
 import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { ChevronLeft, Check, X, Send } from "lucide-react";
-import StatusBar from "@/app/components/StatusBar";
 
 
 
@@ -94,7 +93,6 @@ export default function AddMemberPage() {
 
   return (
     <div className="flex flex-col h-full" style={{ fontFamily: "'Inter', sans-serif", background: "#F5F5F7" }}>
-      <StatusBar />
 
       {/* App Bar */}
       <div className="flex-shrink-0 flex items-center px-5"

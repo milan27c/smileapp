@@ -3,7 +3,6 @@
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import StatusBar from "@/app/components/StatusBar";
 import {
   Home as HomeIcon,
   Gift,
@@ -79,15 +78,14 @@ export default function ProfilePage() {
 
   return (
     <div className="flex flex-col h-full" style={{ background: "#F5F5F7", fontFamily: "'Inter', sans-serif" }}>
-      <StatusBar />
 
       {/* App Bar */}
       <div
         className="relative flex items-center px-5 flex-shrink-0"
         style={{
-          paddingTop: "48px",
-          paddingBottom: "12px",
-          minHeight: "80px",
+          paddingTop: "12px",
+          paddingBottom: "8px",
+          minHeight: "56px",
           borderBottom: "1px solid #F0F0F0",
           background: "#fff",
         }}
@@ -97,7 +95,7 @@ export default function ProfilePage() {
       </div>
 
       {/* Scrollable Content */}
-      <div className="flex-1 overflow-y-auto" style={{ paddingBottom: "72px" }}>
+      <div className="flex-1 overflow-y-auto" style={{ paddingBottom: "0" }}>
 
         {/* Profile Card */}
         <div className="px-5 pt-5 pb-4">

@@ -2,7 +2,6 @@
 
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import StatusBar from "@/app/components/StatusBar";
 import { ChevronLeft, Plus, Clock, Home as HomeIcon, Gift, Compass, Car, User } from "lucide-react";
 import { useState, useEffect } from "react";
 
@@ -139,7 +138,6 @@ export default function ParkingPage() {
   if (scanning) {
     return (
       <div className="flex flex-col h-full items-center justify-center px-8" style={{ background: "#F5F5F7" }}>
-        <StatusBar />
         {scanStep < 3 ? (
           <>
             <div
@@ -196,8 +194,8 @@ export default function ParkingPage() {
     <div
       className="relative flex items-center px-5 flex-shrink-0"
       style={{
-        paddingTop: "48px", paddingBottom: "12px",
-        background: "#fff", borderBottom: "1px solid #F0F0F0", minHeight: "80px",
+        paddingTop: "12px", paddingBottom: "8px",
+        background: "#fff", borderBottom: "1px solid #F0F0F0", minHeight: "56px",
       }}
     >
       <button onClick={() => router.push("/home")} className="flex items-center gap-1">
@@ -239,7 +237,6 @@ export default function ParkingPage() {
   if (!isLoaded || vehicles.length === 0) {
     return (
       <div className="flex flex-col h-full" style={{ background: "#F5F5F7" }}>
-        <StatusBar />
         {appBar}
         <div className="flex-1 overflow-y-auto px-4 pt-6" style={{ paddingBottom: "88px" }}>
           <div style={{ background: "#fff", borderRadius: "16px", border: "1px solid #F0F0F0", padding: "20px" }}>
@@ -299,7 +296,6 @@ export default function ParkingPage() {
   // ── Has vehicles ──────────────────────────────────────────────────────────
   return (
     <div className="flex flex-col h-full" style={{ background: "#F5F5F7" }}>
-      <StatusBar />
       {appBar}
 
       <div className="flex-1 overflow-y-auto px-4 pt-4" style={{ paddingBottom: "90px" }}>

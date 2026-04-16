@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import StatusBar from "@/app/components/StatusBar";
 import { ChevronLeft } from "lucide-react";
 
 export default function SettingsPage() {
@@ -13,15 +12,14 @@ export default function SettingsPage() {
 
   return (
     <div className="flex flex-col h-full" style={{ background: "#F5F5F7", fontFamily: "'Inter', sans-serif" }}>
-      <StatusBar />
 
       {/* App Bar */}
       <div
         className="relative flex items-center px-5 flex-shrink-0"
         style={{
-          paddingTop: "48px",
-          paddingBottom: "12px",
-          minHeight: "80px",
+          paddingTop: "12px",
+          paddingBottom: "8px",
+          minHeight: "56px",
           borderBottom: "1px solid #F0F0F0",
           background: "#fff",
         }}

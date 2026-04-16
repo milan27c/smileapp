@@ -11,43 +11,6 @@ import {
   Home as HomeIcon,
 } from "lucide-react";
 
-function StatusBar() {
-  return (
-    <div
-      className="absolute top-0 left-0 right-0 z-40 flex justify-between items-center px-4"
-      style={{ paddingTop: "12px", paddingBottom: "4px", pointerEvents: "none" }}
-    >
-      {/* Left: Time */}
-      <span style={{ fontSize: "12px", fontWeight: 600, color: "#0E0E10" }}>9:41</span>
-
-      {/* Center spacer */}
-      <div style={{ flex: 1 }} />
-
-      {/* Right: Signal, WiFi, Battery */}
-      <div className="flex items-center gap-1">
-        {/* Signal strength */}
-        <svg width="14" height="10" viewBox="0 0 16 11" fill="#0E0E10">
-          <rect x="0" y="7" width="3" height="4" rx="1" />
-          <rect x="4.5" y="4.5" width="3" height="6.5" rx="1" />
-          <rect x="9" y="2" width="3" height="9" rx="1" />
-          <rect x="13.5" y="0" width="2.5" height="11" rx="1" />
-        </svg>
-
-        {/* WiFi */}
-        <svg width="12" height="9" viewBox="0 0 24 24" fill="none" stroke="#0E0E10" strokeWidth="2">
-          <path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.94 0" />
-        </svg>
-
-        {/* Battery */}
-        <svg width="20" height="10" viewBox="0 0 24 12" fill="none" stroke="#0E0E10" strokeWidth="1.5">
-          <rect x="1" y="1.5" width="18" height="9" rx="2" ry="2" />
-          <rect x="19" y="3.5" width="2" height="5" rx="0.5" ry="0.5" />
-          <rect x="3" y="3" width="10" height="6" rx="1" fill="#0E0E10" />
-        </svg>
-      </div>
-    </div>
-  );
-}
 
 const quickActions = [
   {
@@ -72,17 +35,17 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col h-full" style={{ background: "#F5F5F7" }}>
-      <StatusBar />
 
       {/* ── App Bar (Static) ── */}
       <div
         className="relative flex items-center justify-between px-5 flex-shrink-0"
         style={{
-          paddingTop: "48px",
-          paddingBottom: "12px",
+          paddingTop: "12px",
+          paddingBottom: "8px",
           background: "#fff",
           borderBottom: "1px solid #F0F0F0",
-          minHeight: "80px",
+          minHeight: "56px",
+          zIndex: 20,
         }}
       >
         {/* Logo only — larger */}
@@ -121,7 +84,7 @@ export default function HomePage() {
       </div>
 
       {/* ── Scrollable Content ── */}
-      <div className="flex-1 overflow-y-auto no-scrollbar pb-[150px]" style={{ paddingBottom: "80px" }}>
+      <div className="flex-1 overflow-y-auto no-scrollbar pb-[222px]">
         {/* ── Sliders (Horizontal Scroll) ── */}
         <div
           className="overflow-x-auto no-scrollbar"
@@ -286,7 +249,7 @@ export default function HomePage() {
               backgroundPosition: "center",
               padding: "14px 16px",
               boxShadow: "0 4px 16px rgba(0,0,0,0.12)",
-              minHeight: "80px",
+              minHeight: "56px",
               border: "none",
               cursor: "pointer",
               transition: "transform 0.2s",

@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { ChevronLeft } from "lucide-react";
-import StatusBar from "@/app/components/StatusBar";
 
 
 
@@ -27,17 +26,16 @@ export default function PointsPage() {
 
   return (
     <div className="flex flex-col h-full" style={{ background: "#F5F5F7" }}>
-      <StatusBar />
 
       {/* App Bar */}
       <div
         className="relative flex items-center px-5 flex-shrink-0"
         style={{
-          paddingTop: "48px",
-          paddingBottom: "12px",
+          paddingTop: "12px",
+          paddingBottom: "8px",
           background: "#fff",
           borderBottom: "1px solid #F0F0F0",
-          minHeight: "80px",
+          minHeight: "56px",
         }}
       >
         <button onClick={() => router.back()} className="flex items-center gap-1">
@@ -47,7 +45,7 @@ export default function PointsPage() {
       </div>
 
       {/* Scrollable Content */}
-      <div className="flex-1 overflow-y-auto no-scrollbar pb-[150px]" style={{ paddingBottom: "24px" }}>
+      <div className="flex-1 overflow-y-auto no-scrollbar pb-[222px] pb-[222px]" style={{ paddingBottom: "24px" }}>
         {/* Points Hero Section */}
         <div className="px-4 pt-5 pb-2">
           <div

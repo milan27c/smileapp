@@ -79,7 +79,6 @@ function SignupContent() {
 
   return (
     <div className="flex flex-col h-full bg-white">
-      <StatusBar />
 
       {/* Nav */}
       <div className="flex items-center px-5 pt-16 pb-3">
@@ -90,7 +89,7 @@ function SignupContent() {
       </div>
 
       {/* Scrollable form */}
-      <div className="flex-1 overflow-y-auto no-scrollbar px-5 pb-8">
+      <div className="flex-1 overflow-y-auto no-scrollbar pb-[222px] px-5 pb-8">
         {/* Step indicator — minimal dots */}
         <div className="flex items-center gap-2 mb-5">
           {[true, true, false].map((done, i) => (

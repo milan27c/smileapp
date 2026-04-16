@@ -3,7 +3,6 @@
 import { useRouter, useParams } from "next/navigation";
 import Image from "next/image";
 import { ChevronLeft } from "lucide-react";
-import StatusBar from "@/app/components/StatusBar";
 
 
 
@@ -35,7 +34,6 @@ export default function ChallengeDetailsPage() {
   if (!challenge) {
     return (
       <div className="flex flex-col h-full" style={{ background: "#F5F5F7" }}>
-        <StatusBar />
         <div className="flex-shrink-0 flex items-center px-5"
           style={{ paddingTop: "12px", paddingBottom: "8px", minHeight: "56px", borderBottom: "1px solid #F0F0F0", background: "#fff" }}>
           <button onClick={() => router.back()} className="flex items-center gap-1">
@@ -55,7 +53,6 @@ export default function ChallengeDetailsPage() {
 
   return (
     <div className="flex flex-col h-full" style={{ background: "#F5F5F7" }}>
-      <StatusBar />
 
       {/* App Bar */}
       <div className="flex-shrink-0 flex items-center px-5"

@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { ChevronLeft, RefreshCw } from "lucide-react";
-import StatusBar from "@/app/components/StatusBar";
 
 
 
@@ -17,17 +16,16 @@ export default function MyQRPage() {
 
   return (
     <div className="flex flex-col h-full bg-white">
-      <StatusBar />
 
       {/* Top nav */}
       <div
         className="relative flex items-center px-5 flex-shrink-0"
         style={{
-          paddingTop: "48px",
-          paddingBottom: "12px",
+          paddingTop: "12px",
+          paddingBottom: "8px",
           background: "#fff",
           borderBottom: "1px solid #F0F0F0",
-          minHeight: "80px",
+          minHeight: "56px",
         }}
       >
         <button onClick={() => router.back()} className="flex items-center gap-1">

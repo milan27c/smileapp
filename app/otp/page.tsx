@@ -3,7 +3,6 @@
 import { Suspense, useState, useEffect, useRef } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ChevronLeft, ShieldCheck, RefreshCw } from "lucide-react";
-import StatusBar from "@/app/components/StatusBar";
 
 
 
@@ -96,17 +95,16 @@ function OtpContent() {
 
   return (
     <div className="flex flex-col h-full bg-white">
-      <StatusBar />
 
       {/* Top nav */}
       <div
         className="relative flex items-center px-5 flex-shrink-0"
         style={{
-          paddingTop: "48px",
-          paddingBottom: "12px",
+          paddingTop: "12px",
+          paddingBottom: "8px",
           background: "#fff",
           borderBottom: "1px solid #F0F0F0",
-          minHeight: "80px",
+          minHeight: "56px",
         }}
       >
         <button

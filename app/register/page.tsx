@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import StatusBar from "@/app/components/StatusBar";
 import { ChevronLeft, ChevronDown, Phone, Mail } from "lucide-react";
 
 export default function RegisterPage() {
@@ -66,7 +65,7 @@ export default function RegisterPage() {
 
       {/* White card */}
       <div
-        className="flex-1 bg-white overflow-y-auto no-scrollbar px-5 pb-6"
+        className="flex-1 bg-white overflow-y-auto no-scrollbar pb-[222px] px-5 pb-6"
         style={{
           borderTopLeftRadius: "28px",
           borderTopRightRadius: "28px",

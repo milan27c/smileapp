@@ -1,7 +1,6 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import StatusBar from "@/app/components/StatusBar";
 import { ChevronLeft, CreditCard, Lock } from "lucide-react";
 import { useState, Suspense } from "react";
 
@@ -42,7 +41,6 @@ function ParkingPaymentContent() {
 
   return (
     <div className="flex flex-col h-full" style={{ background: "#F5F5F7", fontFamily: "'Inter', sans-serif" }}>
-      <StatusBar />
 
       {/* App Bar */}
       <div className="relative flex items-center px-5 flex-shrink-0"

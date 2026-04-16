@@ -3,7 +3,6 @@
 import { useRouter, useParams } from "next/navigation";
 import Image from "next/image";
 import { ChevronLeft } from "lucide-react";
-import StatusBar from "@/app/components/StatusBar";
 
 
 

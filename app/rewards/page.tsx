@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, Suspense } from "react";
-import StatusBar from "@/app/components/StatusBar";
 import { useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
 import {
@@ -63,17 +62,16 @@ function RewardsContent() {
 
   return (
     <div className="flex flex-col h-full" style={{ background: "#F5F5F7" }}>
-      <StatusBar />
 
       {/* App Bar */}
       <div
         className="relative flex items-center justify-between px-5 flex-shrink-0"
         style={{
-          paddingTop: "48px",
-          paddingBottom: "12px",
+          paddingTop: "12px",
+          paddingBottom: "8px",
           background: "#fff",
           borderBottom: "1px solid #F0F0F0",
-          minHeight: "80px",
+          minHeight: "56px",
         }}
       >
         <h1 className="font-bold" style={{ fontSize: "16px", color: "#0E0E10" }}>
@@ -123,7 +121,7 @@ function RewardsContent() {
       </div>
 
       {/* Rewards List */}
-      <div className="flex-1 overflow-y-auto no-scrollbar px-4 pt-4" style={{ paddingBottom: "100px" }}>
+      <div className="flex-1 overflow-y-auto no-scrollbar pb-[222px] px-4 pt-4" style={{ paddingBottom: "100px" }}>
         {filtered.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-20">
             <p style={{ fontSize: "14px", color: "#B3B3B4" }}>No rewards in this category</p>

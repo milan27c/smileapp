@@ -2,7 +2,6 @@
 
 import { useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import StatusBar from "@/app/components/StatusBar";
 import { ChevronLeft, Check } from "lucide-react";
 
 const WALLET_POINTS = 780;
@@ -39,7 +38,6 @@ function ParkingPayPointsContent() {
           animation: "fade-in 0.35s ease both",
         }}
       >
-        <StatusBar />
         {/* Check circle */}
         <div style={{
           width: "96px", height: "96px", borderRadius: "9999px",
@@ -73,7 +71,6 @@ function ParkingPayPointsContent() {
 
   return (
     <div className="flex flex-col h-full" style={{ background: "#F5F5F7", fontFamily: "'Inter', sans-serif" }}>
-      <StatusBar />
 
       {/* App Bar */}
       <div className="relative flex items-center px-5 flex-shrink-0"

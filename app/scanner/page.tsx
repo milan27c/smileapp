@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { ChevronLeft } from "lucide-react";
-import StatusBar from "@/app/components/StatusBar";
 
 
 
@@ -96,9 +95,9 @@ export default function ScannerPage() {
       <div
         className="relative flex items-center px-5 flex-shrink-0 z-10"
         style={{
-          paddingTop: "48px",
-          paddingBottom: "12px",
-          minHeight: "80px",
+          paddingTop: "12px",
+          paddingBottom: "8px",
+          minHeight: "56px",
         }}
       >
         <button onClick={() => router.back()} className="flex items-center gap-1">

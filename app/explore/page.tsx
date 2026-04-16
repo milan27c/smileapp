@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import StatusBar from "@/app/components/StatusBar";
 import { Search, SlidersHorizontal, Home as HomeIcon, Gift, Compass, Car, User, X } from "lucide-react";
 
 const CATEGORIES = [
@@ -82,15 +81,14 @@ export default function ExplorePage() {
 
   return (
     <div className="flex flex-col h-full" style={{ background: "#F5F5F7", fontFamily: "'Inter', sans-serif" }}>
-      <StatusBar />
 
       {/* App Bar */}
       <div
         className="relative flex items-center justify-between px-5 flex-shrink-0"
         style={{
-          paddingTop: "48px",
-          paddingBottom: "12px",
-          minHeight: "80px",
+          paddingTop: "12px",
+          paddingBottom: "8px",
+          minHeight: "56px",
           borderBottom: "1px solid #F0F0F0",
           background: "#fff",
         }}
@@ -102,7 +100,7 @@ export default function ExplorePage() {
       </div>
 
       {/* Scrollable Content */}
-      <div className="flex-1 overflow-y-auto" style={{ paddingBottom: "72px" }}>
+      <div className="flex-1 overflow-y-auto" style={{ paddingBottom: "0" }}>
         {/* Search + Filter */}
         <div className="flex items-center gap-3 px-5 pt-4 pb-3">
           <form onSubmit={handleSearch} className="flex-1 relative">

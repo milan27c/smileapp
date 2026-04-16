@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useRouter, useParams } from "next/navigation";
 import Image from "next/image";
 import { ChevronLeft, Check } from "lucide-react";
-import StatusBar from "@/app/components/StatusBar";
 
 
 
@@ -52,7 +51,6 @@ export default function PayWithPointsPage() {
           animation: "fade-in 0.35s ease both",
         }}
       >
-        <StatusBar />
         {/* Check circle */}
         <div style={{
           width: "96px", height: "96px", borderRadius: "9999px",
@@ -86,7 +84,6 @@ export default function PayWithPointsPage() {
 
   return (
     <div className="flex flex-col h-full" style={{ background: "#F5F5F7", fontFamily: "'Inter', sans-serif" }}>
-      <StatusBar />
 
       {/* App Bar */}
       <div className="flex-shrink-0 flex items-center px-5"

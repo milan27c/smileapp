@@ -3,7 +3,6 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
 import { Suspense } from "react";
-import StatusBar from "@/app/components/StatusBar";
 
 
 

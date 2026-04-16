@@ -3,7 +3,6 @@
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { ChevronLeft } from "lucide-react";
-import StatusBar from "@/app/components/StatusBar";
 
 
 
@@ -65,7 +64,6 @@ export default function EventsPage() {
 
   return (
     <div className="flex flex-col h-full" style={{ background: "#F5F5F7", fontFamily: "'Inter', sans-serif" }}>
-      <StatusBar />
 
       {/* App Bar */}
       <div className="flex-shrink-0 flex items-center px-5"
