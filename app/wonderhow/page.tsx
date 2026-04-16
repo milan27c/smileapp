@@ -209,78 +209,75 @@ export default function WonderHowPage() {
         </div>
 
         {/* Exclusive Offers Section */}
-        <div style={{ marginBottom: "20px" }}>
+        <div style={{ marginBottom: "24px" }}>
           <h3 style={{ fontSize: "16px", fontWeight: 600, color: "#0E0E10", marginBottom: "12px" }}>
-            Exclusive Offers
+            🎉 Exclusive Offers
           </h3>
-          <div className="flex flex-col gap-3">
+          <div className="flex gap-3 overflow-x-auto no-scrollbar" style={{ paddingBottom: "4px" }}>
             {[
-              { id: 1, title: "Cool Planet", points: 150, logo: "/images/rewardslogos/coolplanet.png" },
-              { id: 2, title: "Cargills Food Hall", points: 180, logo: "/images/rewardslogos/cargillsfoodhall.png" },
-              { id: 3, title: "Odel", points: 220, logo: "/images/rewardslogos/odel.png" },
-              { id: 6, title: "Saheli", points: 200, logo: "/images/rewardslogos/saheli.png" },
-            ].map((reward) => (
-              <button
-                key={reward.id}
-                onClick={() => router.push(`/reward-details/${reward.id}`)}
-                className="flex items-center gap-3 w-full text-left"
-                style={{
-                  background: "#fff",
+              { id: 1, title: "Get 30% off on full priced items", store: "Odel, 1st Floor", validTill: "18 - 19 Nov 2025", points: 150, img: "/images/rewardslogos/odel.png" },
+              { id: 2, title: "Triple Points on Every Purchase", store: "Cargills Food Hall, Ground Floor", validTill: "30 Nov 2025", points: 80, img: "/images/rewardslogos/cargillsfoodhall.png" },
+              { id: 3, title: "Buy 2 Get 1 Free on All Pizzas", store: "Pizza Hut, Level 1", validTill: "15 Dec 2025", points: 120, img: "/images/rewardslogos/pizzahut.png" },
+              { id: 5, title: "Exclusive Spa Package Deal", store: "Spa Ceylon, Level 3", validTill: "28 Feb 2026", points: 200, img: "/images/rewardslogos/spaceylon.png" },
+            ].map((offer) => (
+              <div key={offer.id} style={{
+                background: "#fff",
+                borderRadius: "16px",
+                border: "1px solid #F0F0F0",
+                overflow: "hidden",
+                display: "flex",
+                gap: "14px",
+                padding: "14px",
+                flexShrink: 0,
+                width: "291px",
+              }}>
+                {/* Image */}
+                <div style={{
+                  position: "relative",
+                  width: "80px",
+                  height: "80px",
+                  flexShrink: 0,
                   borderRadius: "12px",
-                  padding: "12px",
-                  boxShadow: "0 1px 6px rgba(0,0,0,0.06)",
-                  border: "none",
-                  cursor: "pointer",
-                  transition: "all 0.15s",
-                }}
-              >
-                {/* Logo */}
-                <div
-                  className="relative flex-shrink-0 overflow-hidden"
-                  style={{
-                    width: "48px",
-                    height: "48px",
-                    borderRadius: "10px",
-                    background: "#F5F5F7",
-                    border: "1px solid #F0F0F0",
-                  }}
-                >
+                  overflow: "hidden",
+                  background: "#FAFAFA",
+                }}>
                   <Image
-                    src={reward.logo}
-                    alt={reward.title}
+                    src={offer.img}
+                    alt={offer.title}
                     fill
                     style={{ objectFit: "cover" }}
                   />
                 </div>
 
                 {/* Details */}
-                <div className="flex-1">
-                  <p style={{ fontSize: "13px", fontWeight: 600, color: "#0E0E10" }}>
-                    {reward.title}
-                  </p>
-                  <p style={{ fontSize: "11px", color: "#52525B", marginTop: "2px" }}>
-                    Tap to redeem
-                  </p>
+                <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between", minWidth: 0 }}>
+                  <div style={{ minWidth: 0 }}>
+                    <p style={{ fontSize: "12px", fontWeight: 600, color: "#0E0E10", marginBottom: "6px", lineHeight: 1.2, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                      {offer.title}
+                    </p>
+                    <p style={{ fontSize: "10px", color: "#52525B", marginBottom: "4px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                      📍 {offer.store}
+                    </p>
+                    <p style={{ fontSize: "10px", color: "#52525B", marginBottom: "6px" }}>
+                      📅 {offer.validTill}
+                    </p>
+                  </div>
+                  <button onClick={() => router.push(`/reward-details/${offer.id}`)} style={{
+                    height: "28px",
+                    borderRadius: "8px",
+                    border: "1.5px solid #9728B8",
+                    background: "#fff",
+                    color: "#9728B8",
+                    fontSize: "11px",
+                    fontWeight: 600,
+                    cursor: "pointer",
+                    transition: "all 0.2s",
+                    padding: "0 10px",
+                  }}>
+                    Redeem
+                  </button>
                 </div>
-
-                {/* Points Badge */}
-                <div
-                  className="flex-shrink-0 flex items-center gap-1"
-                  style={{
-                    background: "#F0F0F0",
-                    paddingLeft: "8px",
-                    paddingRight: "10px",
-                    paddingTop: "4px",
-                    paddingBottom: "4px",
-                    borderRadius: "9999px",
-                  }}
-                >
-                  <span style={{ fontSize: "12px", flexShrink: 0 }}>🪙</span>
-                  <p style={{ fontSize: "11px", fontWeight: 600, color: "#0E0E10", margin: 0 }}>
-                    {reward.points}
-                  </p>
-                </div>
-              </button>
+              </div>
             ))}
           </div>
         </div>
