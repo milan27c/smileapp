@@ -34,21 +34,23 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="HCM Smiles" />
       </head>
       <body
-        className="w-full h-full m-0 p-0 overflow-hidden flex items-center justify-center"
+        className="w-full h-screen m-0 p-0 overflow-hidden flex items-center justify-center"
         style={{
           background: "linear-gradient(135deg, #1C1C1E 0%, #2C2C2E 100%)",
           margin: 0,
           padding: 0,
         }}
       >
-        {/* App Container - Full screen on mobile, mobile-sized on desktop */}
+        {/* App Container - Full screen on mobile, mobile-sized and fitted on desktop */}
         <div
-          className="w-full h-full lg:w-[393px] lg:h-screen lg:max-h-full"
+          className="w-full h-screen lg:w-[393px] lg:h-screen flex flex-col"
           style={{
             background: "#000",
             overflow: "hidden",
             margin: 0,
             padding: 0,
+            maxHeight: "100vh",
+            height: "100vh",
           }}
         >
           {children}
