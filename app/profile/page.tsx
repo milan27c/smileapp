@@ -95,7 +95,7 @@ export default function ProfilePage() {
       </div>
 
       {/* Scrollable Content */}
-      <div className="flex-1 overflow-y-auto pb-[192px]">
+      <div className="flex-1 overflow-y-auto pb-[250px]">
 
         {/* Profile Card */}
         <div className="px-5 pt-5 pb-4">

@@ -150,27 +150,28 @@ export default function PromoDetailPage() {
         </div>
       </div>
 
-      {/* Bottom CTA */}
-      <div className="px-5 pb-6 flex-shrink-0">
-        <button
-          onClick={handleClaim}
-          disabled={claimed}
-          className="w-full"
-          style={{
-            height: "48px",
-            borderRadius: "12px",
-            fontSize: "15px",
-            background: claimed ? "#E4E4E7" : "#9728B8",
-            color: claimed ? "#B3B3B4" : "#fff",
-            cursor: claimed ? "not-allowed" : "pointer",
-            transition: "all 0.15s",
-            fontWeight: 600,
-            border: "none",
-          }}
-        >
-          {claimed ? "Offer Claimed!" : "Add to Wallet"}
-        </button>
-      </div>
+      {/* Bottom CTA — Floating Button */}
+      <button
+        onClick={handleClaim}
+        disabled={claimed}
+        className="absolute bottom-0 left-0 right-0"
+        style={{
+          margin: "0 20px 20px 20px",
+          height: "48px",
+          borderRadius: "12px",
+          fontSize: "15px",
+          background: claimed ? "#E4E4E7" : "#9728B8",
+          color: claimed ? "#B3B3B4" : "#fff",
+          cursor: claimed ? "not-allowed" : "pointer",
+          transition: "all 0.15s",
+          fontWeight: 600,
+          border: "none",
+          zIndex: 40,
+          boxShadow: "0 4px 16px rgba(0,0,0,0.12)",
+        }}
+      >
+        {claimed ? "Offer Claimed!" : "Add to Wallet"}
+      </button>
 
       {/* Success Overlay */}
       {claimed && (
