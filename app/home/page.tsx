@@ -53,15 +53,24 @@ export default function HomePage() {
 
         {/* Right icons — no background */}
         <div className="flex items-center gap-4">
-          {/* Spin wheel button */}
-          <button onClick={() => router.push("/spin-wheel")} className="flex items-center justify-center active:opacity-70">
+          {/* Points Chip with Silver Badge */}
+          <div
+            className="flex items-center gap-2 px-3 py-1.5"
+            style={{
+              background: "#F5F5F7",
+              borderRadius: "9999px",
+              border: "1px solid #E4E4E7",
+            }}
+          >
             <Image
-              src="/images/spinwheel.png"
-              alt="Spin Wheel"
-              width={28}
-              height={28}
+              src="/images/silver.png"
+              alt="Silver Member"
+              width={16}
+              height={16}
+              style={{ objectFit: "contain" }}
             />
-          </button>
+            <span style={{ fontSize: "12px", fontWeight: 600, color: "#0E0E10" }}>4,250</span>
+          </div>
           {/* Notification bell */}
           <button className="relative flex items-center justify-center active:opacity-70">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E0E10" strokeWidth="1.5">
@@ -237,6 +246,45 @@ export default function HomePage() {
           </button>
         </div>
 
+        {/* ── Up Coming Events ── */}
+        <div className="px-4 pb-6">
+          {/* Section Header */}
+          <div className="flex items-center justify-between mb-3">
+            <h2 className="font-bold" style={{ fontSize: "16px", color: "#0E0E10" }}>
+              Up Coming Events
+            </h2>
+            <button onClick={() => router.push("/events")} style={{ background: "none", border: "none", cursor: "pointer", padding: "0" }}>
+              <ChevronRight size={20} style={{ color: "#0E0E10" }} />
+            </button>
+          </div>
+
+          {/* Events Scroll */}
+          <div
+            className="overflow-x-auto no-scrollbar"
+            style={{ marginLeft: "-16px", marginRight: "-16px", paddingLeft: "16px", paddingRight: "16px" }}
+          >
+            <div className="flex gap-3" style={{ width: "fit-content" }}>
+              {[
+                { id: 1, img: "/images/events/events1.png", title: "A Fun Filled Christmas Party", date: "Dec 13, 2025" },
+                { id: 2, img: "/images/events/events2.png", title: "New Year Countdown Gala",    date: "Dec 31, 2025" },
+              ].map((ev) => (
+                <button
+                  key={ev.id}
+                  onClick={() => router.push(`/event-details/${ev.id}`)}
+                  className="flex-shrink-0 overflow-hidden text-left"
+                  style={{ borderRadius: "14px", width: "220px", background: "#fff", boxShadow: "0 2px 8px rgba(0,0,0,0.06)", border: "none", cursor: "pointer", padding: "0" }}
+                >
+                  <Image src={ev.img} alt={ev.title} width={220} height={120} style={{ objectFit: "cover", width: "100%", height: "120px" }} unoptimized />
+                  <div style={{ padding: "10px 12px" }}>
+                    <p className="font-semibold" style={{ fontSize: "12px", color: "#0E0E10", lineHeight: 1.3 }}>{ev.title}</p>
+                    <p style={{ fontSize: "11px", color: "#52525B", marginTop: "3px" }}>📅 {ev.date}</p>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
         {/* ── Daily Login Bonus ── */}
         <div className="px-4 pb-6">
           <button
@@ -263,7 +311,7 @@ export default function HomePage() {
           >
             <div className="flex items-center gap-4">
               {/* Text — white */}
-              <div className="flex-1 min-w-0">
+              <div className="flex-1 min-w-0" style={{ marginLeft: "40px" }}>
                 <p className="font-bold text-white" style={{ fontSize: "14px" }}>
                   Daily Login Bonus
                 </p>
@@ -333,45 +381,6 @@ export default function HomePage() {
               </div>
             </div>
           </button>
-        </div>
-
-        {/* ── Up Coming Events ── */}
-        <div className="px-4 pb-6">
-          {/* Section Header */}
-          <div className="flex items-center justify-between mb-3">
-            <h2 className="font-bold" style={{ fontSize: "16px", color: "#0E0E10" }}>
-              Up Coming Events
-            </h2>
-            <button onClick={() => router.push("/events")} style={{ background: "none", border: "none", cursor: "pointer", padding: "0" }}>
-              <ChevronRight size={20} style={{ color: "#0E0E10" }} />
-            </button>
-          </div>
-
-          {/* Events Scroll */}
-          <div
-            className="overflow-x-auto no-scrollbar"
-            style={{ marginLeft: "-16px", marginRight: "-16px", paddingLeft: "16px", paddingRight: "16px" }}
-          >
-            <div className="flex gap-3" style={{ width: "fit-content" }}>
-              {[
-                { id: 1, img: "/images/events/events1.png", title: "A Fun Filled Christmas Party", date: "Dec 13, 2025" },
-                { id: 2, img: "/images/events/events2.png", title: "New Year Countdown Gala",    date: "Dec 31, 2025" },
-              ].map((ev) => (
-                <button
-                  key={ev.id}
-                  onClick={() => router.push(`/event-details/${ev.id}`)}
-                  className="flex-shrink-0 overflow-hidden text-left"
-                  style={{ borderRadius: "14px", width: "220px", background: "#fff", boxShadow: "0 2px 8px rgba(0,0,0,0.06)", border: "none", cursor: "pointer", padding: "0" }}
-                >
-                  <Image src={ev.img} alt={ev.title} width={220} height={120} style={{ objectFit: "cover", width: "100%", height: "120px" }} unoptimized />
-                  <div style={{ padding: "10px 12px" }}>
-                    <p className="font-semibold" style={{ fontSize: "12px", color: "#0E0E10", lineHeight: 1.3 }}>{ev.title}</p>
-                    <p style={{ fontSize: "11px", color: "#52525B", marginTop: "3px" }}>📅 {ev.date}</p>
-                  </div>
-                </button>
-              ))}
-            </div>
-          </div>
         </div>
 
         {/* ── Rewards Just For You ── */}
@@ -538,6 +547,42 @@ export default function HomePage() {
           </button>
         ))}
       </div>
+
+      {/* ── Floating Spin Wheel Button ── */}
+      <button
+        onClick={() => router.push("/spin-wheel")}
+        className="absolute"
+        style={{
+          width: "50px",
+          height: "50px",
+          borderRadius: "50%",
+          background: "#9728B8",
+          border: "none",
+          cursor: "pointer",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          bottom: "90px",
+          right: "20px",
+          zIndex: 30,
+          boxShadow: "0 6px 20px rgba(151,40,184,0.3)",
+          transition: "all 0.2s",
+        }}
+        onMouseDown={(e) => {
+          (e.currentTarget as HTMLButtonElement).style.transform = "scale(0.92)";
+        }}
+        onMouseUp={(e) => {
+          (e.currentTarget as HTMLButtonElement).style.transform = "scale(1)";
+        }}
+      >
+        <Image
+          src="/images/spinwheel.png"
+          alt="Spin Wheel"
+          width={28}
+          height={28}
+          style={{ objectFit: "contain" }}
+        />
+      </button>
 
     </div>
   );

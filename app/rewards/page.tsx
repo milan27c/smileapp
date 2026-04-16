@@ -11,7 +11,7 @@ import {
   Home as HomeIcon,
   MapPin,
   Calendar,
-  Gem,
+  Coins,
 } from "lucide-react";
 
 
@@ -24,18 +24,21 @@ type Reward = {
   validTill: string;
   points: number;
   category: string;
-  img: string;
+  logo: string;
+  banner: string;
 };
 
 const allRewards: Reward[] = [
   // Fashion
-  { id: 1, title: "Get 10% off at Cool Planet", store: "Cool Planet", floor: "Ground Floor", validTill: "30 Nov 2025", points: 150, category: "Fashion", img: "/images/rewardsscreen/Fashion/cool planet.png" },
+  { id: 1, title: "Get 20% off on Fashion", store: "Cool Planet", floor: "Ground Floor", validTill: "30 Nov 2025", points: 150, category: "Fashion", logo: "/images/rewardsscreen/Fashion/coolplanet.png", banner: "/images/rewardsbanner/coolplanet.png" },
   // Food & Beverages
-  { id: 2, title: "Kombu Tea Promo – Buy 1 Get 1", store: "Kombu", floor: "Ground Floor", validTill: "30 Nov 2025", points: 80, category: "Food & Beverages", img: "/images/rewardsscreen/Food and Beverages/kombu.png" },
-  { id: 3, title: "15% off All Pizzas", store: "The Pizza Co.", floor: "Level 1", validTill: "15 Dec 2025", points: 120, category: "Food & Beverages", img: "/images/rewardsscreen/Food and Beverages/pizzas.png" },
-  { id: 4, title: "Weekday Punch Bowl Special", store: "Fish & Co.", floor: "Ground Floor", validTill: "30 Nov 2025", points: 150, category: "Food & Beverages", img: "/images/rewardsscreen/Food and Beverages/punch bow.png" },
+  { id: 2, title: "Buy 1 Get 1 Free Burger", store: "Fish & Co.", floor: "Ground Floor", validTill: "15 Dec 2025", points: 120, category: "Food & Beverages", logo: "/images/rewardsscreen/Food and Beverages/fishandco.png", banner: "/images/rewardsbanner/fishandco.png" },
+  { id: 3, title: "15% off All Pizzas", store: "Pizza Hut", floor: "Level 1", validTill: "20 Dec 2025", points: 100, category: "Food & Beverages", logo: "/images/rewardsscreen/Food and Beverages/pizzahut.png", banner: "/images/rewardsbanner/pizzahut.png" },
+  { id: 4, title: "Free Churros on Every Meal", store: "Taco Bell", floor: "Level 2", validTill: "10 Jan 2026", points: 80, category: "Food & Beverages", logo: "/images/rewardsscreen/Food and Beverages/tacobell.png", banner: "/images/rewardsbanner/tacobell.png" },
   // Health, Beauty & Wellness
-  { id: 5, title: "Spa Ceylon Full Body Ritual", store: "Spa Ceylon", floor: "Level 3", validTill: "28 Feb 2026", points: 400, category: "Health, Beauty & Wellness", img: "/images/rewardsscreen/Health Beauty & Wellness/spa ceylon.png" },
+  { id: 5, title: "Full Body Spa Ritual", store: "Spa Ceylon", floor: "Level 3", validTill: "28 Feb 2026", points: 400, category: "Health, Beauty & Wellness", logo: "/images/rewardsscreen/Health Beauty & Wellness/spaceylon.png", banner: "/images/rewardsbanner/spaceylon.png" },
+  // Fashion
+  { id: 6, title: "Exclusive Designer Collection", store: "Saheli", floor: "Level 1", validTill: "31 Jan 2026", points: 200, category: "Fashion", logo: "/images/rewardsscreen/Fashion/saheli.png", banner: "/images/rewardsbanner/saheli.png" },
 ];
 
 const categories = [
@@ -53,7 +56,6 @@ function RewardsContent() {
   const categoryParam = searchParams.get("category") ?? "All";
   const initialCategory = categories.includes(categoryParam) ? categoryParam : "All";
   const [activeCategory, setActiveCategory] = useState(initialCategory);
-  const [drawerReward, setDrawerReward] = useState<Reward | null>(null);
 
   const filtered =
     activeCategory === "All"
@@ -129,87 +131,82 @@ function RewardsContent() {
         ) : (
           <div className="flex flex-col gap-3">
             {filtered.map((reward) => (
-              <div
+              <button
                 key={reward.id}
+                onClick={() => router.push(`/reward-details/${reward.id}`)}
+                className="flex items-center gap-3 w-full text-left"
                 style={{
                   background: "#fff",
                   borderRadius: "16px",
+                  padding: "14px",
                   boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
-                  overflow: "hidden",
+                  border: "none",
+                  cursor: "pointer",
+                  transition: "all 0.15s",
                 }}
               >
-                {/* Card title bar */}
-                <div style={{ padding: "14px 14px 10px 14px" }}>
-                  <p className="font-semibold" style={{ fontSize: "14px", color: "#0E0E10", lineHeight: 1.3 }}>
+                {/* Logo */}
+                <div
+                  className="relative flex-shrink-0 overflow-hidden"
+                  style={{
+                    width: "60px",
+                    height: "60px",
+                    borderRadius: "12px",
+                    background: "#fff",
+                    border: "1px solid #F0F0F0",
+                    boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
+                  }}
+                >
+                  <Image
+                    src={reward.logo}
+                    alt={reward.store}
+                    fill
+                    style={{ objectFit: "cover" }}
+                  />
+                </div>
+
+                {/* Details */}
+                <div className="flex-1 flex flex-col justify-center gap-1.5">
+                  {/* Title */}
+                  <p style={{ fontSize: "14px", fontWeight: 600, color: "#0E0E10", lineHeight: 1.3 }}>
                     {reward.title}
                   </p>
-                </div>
 
-                {/* Card body: image + details */}
-                <div className="flex gap-3" style={{ paddingLeft: "14px", paddingRight: "14px", paddingBottom: "14px" }}>
-                  {/* Promo image */}
-                  <div
-                    className="relative flex-shrink-0 overflow-hidden"
-                    style={{ width: "100px", height: "100px", borderRadius: "12px" }}
-                  >
-                    <Image
-                      src={reward.img}
-                      alt={reward.title}
-                      fill
-                      style={{ objectFit: "cover" }}
-                    />
+                  {/* Store + Floor */}
+                  <div className="flex items-center gap-1.5">
+                    <MapPin size={12} style={{ color: "#52525B", flexShrink: 0 }} />
+                    <p style={{ fontSize: "12px", color: "#52525B" }}>
+                      {reward.store} · {reward.floor}
+                    </p>
                   </div>
 
-                  {/* Details */}
-                  <div className="flex-1 flex flex-col justify-between" style={{ marginLeft: "10px" }}>
-                    <div className="flex flex-col gap-1.5">
-                      <div className="flex items-center gap-1.5">
-                        <MapPin size={11} style={{ color: "#52525B", flexShrink: 0 }} />
-                        <p style={{ fontSize: "11px", color: "#52525B" }}>
-                          {reward.store}, {reward.floor}
-                        </p>
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        <Calendar size={11} style={{ color: "#52525B", flexShrink: 0 }} />
-                        <p style={{ fontSize: "11px", color: "#52525B" }}>
-                          Valid Till: {reward.validTill}
-                        </p>
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        <Gem size={11} style={{ color: "#52525B", flexShrink: 0 }} />
-                        <p style={{ fontSize: "11px", color: "#52525B" }}>
-                          Redeem:{" "}
-                          <span className="font-semibold" style={{ color: "#0E0E10" }}>
-                            {reward.points} Smile Points
-                          </span>
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Redeem button — secondary style */}
-                    <button
-                      onClick={() => setDrawerReward(reward)}
-                      className="w-fit"
-                      style={{
-                        marginTop: "10px",
-                        height: "36px",
-                        paddingLeft: "18px",
-                        paddingRight: "18px",
-                        borderRadius: "10px",
-                        fontSize: "13px",
-                        fontWeight: 600,
-                        background: "#fff",
-                        color: "#9728B8",
-                        border: "1.5px solid #9728B8",
-                        cursor: "pointer",
-                        transition: "all 0.15s",
-                      }}
-                    >
-                      Redeem Now
-                    </button>
+                  {/* Valid Till */}
+                  <div className="flex items-center gap-1.5">
+                    <Calendar size={12} style={{ color: "#52525B", flexShrink: 0 }} />
+                    <p style={{ fontSize: "12px", color: "#52525B" }}>
+                      {reward.validTill}
+                    </p>
                   </div>
                 </div>
-              </div>
+
+                {/* Points Badge */}
+                <div
+                  className="flex-shrink-0 flex items-center gap-1"
+                  style={{
+                    background: "#E8E8E8",
+                    paddingLeft: "8px",
+                    paddingRight: "8px",
+                    paddingTop: "4px",
+                    paddingBottom: "4px",
+                    borderRadius: "6px",
+                  }}
+                >
+                  <Coins size={14} style={{ color: "#0E0E10", flexShrink: 0 }} />
+                  <p style={{ fontSize: "12px", fontWeight: 600, color: "#0E0E10" }}>
+                    {reward.points}
+                  </p>
+                </div>
+              </button>
             ))}
           </div>
         )}
@@ -271,118 +268,6 @@ function RewardsContent() {
         ))}
       </div>
 
-      {/* Bottom Drawer — Redeem Options */}
-      {drawerReward && (
-        <>
-          {/* Backdrop */}
-          <div
-            className="absolute inset-0 z-50"
-            style={{
-              background: "rgba(0,0,0,0.4)",
-              animation: "fadeIn 0.3s ease-out",
-            }}
-            onClick={() => setDrawerReward(null)}
-          />
-
-          {/* Drawer */}
-          <div
-            className="absolute left-0 right-0 bottom-0 z-50"
-            style={{
-              background: "#fff",
-              borderTopLeftRadius: "24px",
-              borderTopRightRadius: "24px",
-              padding: "16px 20px 32px",
-              boxShadow: "0 -8px 32px rgba(0,0,0,0.12)",
-              animation: "slideUp 0.3s ease-out",
-            }}
-            onTouchStart={(e) => {
-              const startY = e.touches[0].clientY;
-              const handler = (moveEvent: TouchEvent) => {
-                const currentY = moveEvent.touches[0].clientY;
-                const diff = currentY - startY;
-                if (diff > 100) {
-                  setDrawerReward(null);
-                }
-              };
-              document.addEventListener("touchmove", handler, { once: true });
-            }}
-          >
-            {/* Drag Handle */}
-            <div
-              className="mx-auto mb-5 cursor-grab active:cursor-grabbing"
-              style={{ width: "36px", height: "4px", borderRadius: "9999px", background: "#E4E4E7" }}
-            />
-
-            <p className="font-bold mb-1" style={{ fontSize: "17px", color: "#0E0E10" }}>
-              Redeem Reward
-            </p>
-            <p className="mb-6" style={{ fontSize: "13px", color: "#52525B", lineHeight: 1.5 }}>
-              Choose how you'd like to redeem your{" "}
-              <span style={{ fontWeight: 600, color: "#0E0E10" }}>{drawerReward.points} points</span>
-            </p>
-
-            <div className="flex gap-3">
-              {/* Scan QR option */}
-              <button
-                onClick={() => { setDrawerReward(null); router.push("/scanner"); }}
-                className="flex-1 flex flex-col items-center gap-3 py-5"
-                style={{
-                  borderRadius: "16px",
-                  border: "1.5px solid #E4E4E7",
-                  background: "#FAFAFA",
-                  cursor: "pointer",
-                  transition: "all 0.15s",
-                }}
-              >
-                <div
-                  className="relative overflow-hidden"
-                  style={{ width: "52px", height: "52px", borderRadius: "12px", background: "rgba(151,40,184,0.08)" }}
-                >
-                  <Image
-                    src="/images/Home Page Gifs/scanqr.gif"
-                    alt="Scan QR"
-                    fill
-                    style={{ objectFit: "cover" }}
-                  />
-                </div>
-                <div className="text-center">
-                  <p className="font-semibold" style={{ fontSize: "13px", color: "#0E0E10" }}>Scan QR</p>
-                  <p style={{ fontSize: "11px", color: "#52525B", marginTop: "2px" }}>Scan merchant QR</p>
-                </div>
-              </button>
-
-              {/* My QR option */}
-              <button
-                onClick={() => { setDrawerReward(null); router.push("/myqr"); }}
-                className="flex-1 flex flex-col items-center gap-3 py-5"
-                style={{
-                  borderRadius: "16px",
-                  border: "1.5px solid #E4E4E7",
-                  background: "#FAFAFA",
-                  cursor: "pointer",
-                  transition: "all 0.15s",
-                }}
-              >
-                <div
-                  className="relative overflow-hidden"
-                  style={{ width: "52px", height: "52px", borderRadius: "12px", background: "rgba(240,2,175,0.08)" }}
-                >
-                  <Image
-                    src="/images/Home Page Gifs/myqr.gif"
-                    alt="My QR"
-                    fill
-                    style={{ objectFit: "cover" }}
-                  />
-                </div>
-                <div className="text-center">
-                  <p className="font-semibold" style={{ fontSize: "13px", color: "#0E0E10" }}>My QR</p>
-                  <p style={{ fontSize: "11px", color: "#52525B", marginTop: "2px" }}>Show your QR code</p>
-                </div>
-              </button>
-            </div>
-          </div>
-        </>
-      )}
     </div>
   );
 }

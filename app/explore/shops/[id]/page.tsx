@@ -2,7 +2,7 @@
 
 import { useRouter, useParams } from "next/navigation";
 import Image from "next/image";
-import { ChevronLeft, Clock, ExternalLink, MapPin } from "lucide-react";
+import { ChevronLeft, Clock, MapPin } from "lucide-react";
 
 
 
@@ -16,6 +16,8 @@ type ShopData = {
   hours: string;
   about: string;
   website?: string;
+  banner?: string;
+  gallery?: string[];
 };
 
 const SHOP_DATA: Record<string, ShopData> = {
@@ -28,6 +30,8 @@ const SHOP_DATA: Record<string, ShopData> = {
     isOpen: true,
     hours: "Mon–Sun: 10:00 AM – 9:00 PM",
     about: "Odel is one of Sri Lanka's most iconic fashion and lifestyle brands, offering a curated selection of accessories, apparel, and lifestyle products. Discover the latest trends and timeless classics at Havelock City Mall.",
+    banner: "/images/shops/Odel/banner.jpg",
+    gallery: ["/images/shops/Odel/1.jpg", "/images/shops/Odel/2.jpg", "/images/shops/Odel/3.jpg", "/images/shops/Odel/4.jpg", "/images/shops/Odel/5.jpg", "/images/shops/Odel/6.jpeg"],
   },
   "cargills": {
     id: "cargills",
@@ -38,6 +42,8 @@ const SHOP_DATA: Record<string, ShopData> = {
     isOpen: true,
     hours: "Mon–Sun: 10:00 AM – 9:00 PM",
     about: "Cargills Food Hall brings you a world of fresh produce, gourmet groceries, and ready-to-eat meals. A one-stop food destination featuring local and international products under one roof.",
+    banner: "/images/shops/cargills food hall/Banner.jpg",
+    gallery: ["/images/shops/cargills food hall/1.jpg", "/images/shops/cargills food hall/2.jpg", "/images/shops/cargills food hall/3.jpg", "/images/shops/cargills food hall/4.jpg", "/images/shops/cargills food hall/5.jpg"],
   },
   "finch": {
     id: "finch",
@@ -386,9 +392,6 @@ export default function ShopDetailPage() {
   const heroGradient = CATEGORY_HERO[shop.category] || "linear-gradient(135deg, #9728B8 0%, #F002AF 100%)";
   const floorColor = FLOOR_COLORS[shop.floor] || "#9728B8";
 
-  // Placeholder gallery images using the same gradient for demo
-  const galleryItems = [1, 2, 3, 4, 5];
-
   return (
     <div className="flex flex-col h-full" style={{ background: "#F5F5F7", fontFamily: "'Inter', sans-serif" }}>
 
@@ -421,8 +424,18 @@ export default function ShopDetailPage() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            overflow: "hidden",
           }}
         >
+          {shop.banner && (
+            <Image
+              src={shop.banner}
+              alt={shop.name}
+              fill
+              style={{ objectFit: "cover" }}
+              unoptimized
+            />
+          )}
           <div
             style={{
               width: "100px",
@@ -435,6 +448,7 @@ export default function ShopDetailPage() {
               overflow: "hidden",
               position: "relative",
               boxShadow: "0 8px 24px rgba(0,0,0,0.15)",
+              zIndex: 10,
             }}
           >
             <Image
@@ -506,92 +520,49 @@ export default function ShopDetailPage() {
               </div>
             </div>
 
-            <button
-              style={{
-                flexShrink: 0,
-                display: "flex",
-                alignItems: "center",
-                gap: "4px",
-                fontSize: "12px",
-                fontWeight: 600,
-                color: "#9728B8",
-                background: "none",
-                border: "none",
-                cursor: "pointer",
-                padding: "4px 0",
-              }}
-            >
-              <ExternalLink size={13} />
-              Website
-            </button>
           </div>
         </div>
 
         {/* Photo Gallery */}
-        <div className="pt-5 pb-2">
-          <h2 style={{ fontSize: "16px", fontWeight: 700, color: "#0E0E10", paddingLeft: "16px", marginBottom: "12px" }}>
-            Gallery
-          </h2>
-          <div
-            className="flex gap-3 overflow-x-auto"
-            style={{
-              paddingLeft: "16px",
-              paddingRight: "16px",
-              paddingBottom: "4px",
-              scrollbarWidth: "none",
-            }}
-          >
-            {galleryItems.map((i) => (
-              <div
-                key={i}
-                style={{
-                  flexShrink: 0,
-                  width: i === galleryItems.length ? "72px" : "140px",
-                  height: "100px",
-                  borderRadius: "14px",
-                  background: heroGradient,
-                  opacity: i === galleryItems.length ? 0.5 : 1,
-                  overflow: "hidden",
-                  position: "relative",
-                }}
-              >
-                {/* Show logo overlay on first image */}
-                {i === 1 && (
-                  <div
-                    style={{
-                      position: "absolute",
-                      inset: 0,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <div
-                      style={{
-                        width: "50px",
-                        height: "50px",
-                        borderRadius: "12px",
-                        background: "rgba(255,255,255,0.9)",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        position: "relative",
-                        overflow: "hidden",
-                      }}
-                    >
-                      <Image
-                        src={shop.logo}
-                        alt={shop.name}
-                        fill
-                        style={{ objectFit: "contain", padding: "6px" }}
-                      />
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))}
+        {shop.gallery && shop.gallery.length > 0 && (
+          <div className="pt-5 pb-2">
+            <h2 style={{ fontSize: "16px", fontWeight: 700, color: "#0E0E10", paddingLeft: "16px", marginBottom: "12px" }}>
+              Gallery
+            </h2>
+            <div
+              className="flex gap-3 overflow-x-auto"
+              style={{
+                paddingLeft: "16px",
+                paddingRight: "16px",
+                paddingBottom: "4px",
+                scrollbarWidth: "none",
+              }}
+            >
+              {shop.gallery.map((image, i) => (
+                <div
+                  key={i}
+                  style={{
+                    flexShrink: 0,
+                    width: "140px",
+                    height: "100px",
+                    borderRadius: "14px",
+                    background: heroGradient,
+                    overflow: "hidden",
+                    position: "relative",
+                  }}
+                >
+                  <Image
+                    src={image}
+                    alt={`${shop.name} ${i + 1}`}
+                    fill
+                    style={{ objectFit: "cover" }}
+                    unoptimized
+                  />
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* About Us */}
         <div className="px-4 pt-4 pb-4">
