@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { ChevronLeft } from "lucide-react";
+import { ChevronLeft, Crown } from "lucide-react";
 
 
 
@@ -294,26 +294,33 @@ export default function PointsPage() {
             className="w-full text-left relative overflow-hidden"
             style={{
               borderRadius: "16px",
-              padding: "24px 20px",
+              padding: "16px 20px",
               border: "none",
               cursor: "pointer",
               transition: "all 0.2s",
               backgroundImage: "url(/images/platinummember.png)",
               backgroundSize: "cover",
               backgroundPosition: "center",
-              minHeight: "140px",
+              minHeight: "100px",
               display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
+              alignItems: "center",
+              gap: "16px",
             }}
           >
+            {/* Crown Icon */}
+            <div style={{ flexShrink: 0 }}>
+              <Crown size={40} style={{ color: "#fff", strokeWidth: 1.5 }} />
+            </div>
+
             {/* Text Content */}
-            <h3 style={{ fontSize: "20px", fontWeight: 700, color: "#fff", margin: 0, marginBottom: "8px" }}>
-              Unlock Platinum Rewards!
-            </h3>
-            <p style={{ fontSize: "14px", color: "rgba(255, 255, 255, 0.9)", lineHeight: 1.5, margin: 0 }}>
-              Explore exclusive benefits and perks available for Platinum members
-            </p>
+            <div style={{ flex: 1 }}>
+              <h3 style={{ fontSize: "16px", fontWeight: 700, color: "#fff", margin: 0, marginBottom: "4px" }}>
+                Unlock Platinum Rewards!
+              </h3>
+              <p style={{ fontSize: "12px", color: "rgba(255, 255, 255, 0.9)", lineHeight: 1.4, margin: 0 }}>
+                Explore exclusive benefits and perks
+              </p>
+            </div>
           </button>
         </div>
       </div>
