@@ -5,7 +5,6 @@ import { useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
 import {
   Gift,
-  Car,
   Compass,
   User,
   Home as HomeIcon,
@@ -226,7 +225,7 @@ function RewardsContent() {
           { icon: HomeIcon, label: "Home", active: false },
           { icon: Gift, label: "Rewards", active: true },
           { icon: Compass, label: "Explore", active: false },
-          { icon: Car, label: "Parking", active: false },
+          { icon: Calendar, label: "Events", active: false },
           { icon: User, label: "Profile", active: false },
         ].map(({ icon: Icon, label, active }) => (
           <button
@@ -234,7 +233,7 @@ function RewardsContent() {
             onClick={() => {
               if (label === "Home") router.push("/home");
               if (label === "Explore") router.push("/explore");
-              if (label === "Parking") router.push("/parking");
+              if (label === "Events") router.push("/events");
               if (label === "Profile") router.push("/profile");
             }}
             className="flex-1 flex flex-col items-center justify-center gap-1"

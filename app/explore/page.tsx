@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { Search, SlidersHorizontal, Home as HomeIcon, Gift, Compass, Car, User, X } from "lucide-react";
+import { Search, SlidersHorizontal, Home as HomeIcon, Gift, Compass, Calendar, User, X } from "lucide-react";
 
 const CATEGORIES = [
   "All",
@@ -438,7 +438,7 @@ export default function ExplorePage() {
           { icon: HomeIcon, label: "Home", active: false },
           { icon: Gift, label: "Rewards", active: false },
           { icon: Compass, label: "Explore", active: true },
-          { icon: Car, label: "Parking", active: false },
+          { icon: Calendar, label: "Events", active: false },
           { icon: User, label: "Profile", active: false },
         ].map(({ icon: Icon, label, active }) => (
           <button
@@ -446,7 +446,7 @@ export default function ExplorePage() {
             onClick={() => {
               if (label === "Home") router.push("/home");
               if (label === "Rewards") router.push("/rewards");
-              if (label === "Parking") router.push("/parking");
+              if (label === "Events") router.push("/events");
               if (label === "Profile") router.push("/profile");
             }}
             className="flex-1 flex flex-col items-center justify-center gap-1"

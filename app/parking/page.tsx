@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { ChevronLeft, Plus, Clock, Home as HomeIcon, Gift, Compass, Car, User } from "lucide-react";
+import { ChevronLeft, Plus, Clock, Home as HomeIcon, Gift, Compass, Calendar, User } from "lucide-react";
 import { useState, useEffect } from "react";
 
 interface Vehicle {
@@ -298,7 +298,7 @@ export default function ParkingPage() {
             { icon: HomeIcon, label: "Home", route: "/home" },
             { icon: Gift, label: "Rewards", route: "/rewards" },
             { icon: Compass, label: "Explore", route: "/explore" },
-            { icon: Car, label: "Parking", route: "/parking", active: true },
+            { icon: Calendar, label: "Events", route: "/events", active: false },
             { icon: User, label: "Profile", route: "/profile" },
           ].map(({ icon: Icon, label, route, active }) => (
             <button

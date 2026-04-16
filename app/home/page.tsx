@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import {
   Gift,
-  Car,
+  Calendar,
   Compass,
   User,
   ChevronRight,
@@ -506,7 +506,7 @@ export default function HomePage() {
           { icon: HomeIcon, label: "Home", active: true },
           { icon: Gift, label: "Rewards", active: false },
           { icon: Compass, label: "Explore", active: false },
-          { icon: Car, label: "Parking", active: false },
+          { icon: Calendar, label: "Events", active: false },
           { icon: User, label: "Profile", active: false },
         ].map(({ icon: Icon, label, active }) => (
           <button
@@ -514,7 +514,7 @@ export default function HomePage() {
             onClick={() => {
               if (label === "Rewards") router.push("/rewards");
               if (label === "Explore") router.push("/explore");
-              if (label === "Parking") router.push("/parking");
+              if (label === "Events") router.push("/events");
               if (label === "Profile") router.push("/profile");
             }}
             className="flex-1 flex flex-col items-center justify-center gap-1"

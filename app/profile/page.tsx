@@ -7,7 +7,7 @@ import {
   Home as HomeIcon,
   Gift,
   Compass,
-  Car,
+  Calendar,
   User,
   ChevronRight,
   UserPen,
@@ -360,7 +360,7 @@ export default function ProfilePage() {
           { icon: HomeIcon, label: "Home", active: false },
           { icon: Gift, label: "Rewards", active: false },
           { icon: Compass, label: "Explore", active: false },
-          { icon: Car, label: "Parking", active: false },
+          { icon: Calendar, label: "Events", active: false },
           { icon: User, label: "Profile", active: true },
         ].map(({ icon: Icon, label, active }) => (
           <button
@@ -369,7 +369,7 @@ export default function ProfilePage() {
               if (label === "Home") router.push("/home");
               if (label === "Rewards") router.push("/rewards");
               if (label === "Explore") router.push("/explore");
-              if (label === "Parking") router.push("/parking");
+              if (label === "Events") router.push("/events");
             }}
             className="flex-1 flex flex-col items-center justify-center gap-1"
           >

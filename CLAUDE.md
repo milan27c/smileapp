@@ -187,8 +187,9 @@ Platinum: gradient(#9728B8 → #F002AF), accent=#9728B8
 - Active icon + label: `primary` (#9728B8)
 - Inactive: `mid-gray` (#B3B3B4)
 - Active indicator: small filled pill behind icon, `primary` at 12% opacity
-- Icons: Home, Rewards, Explore, Parking, Profile
+- Icons: Home, Rewards, Explore, Events, Profile
 - Height: 72px with safe area
+- **Note:** Parking is accessible via Home page quick access (Parking button) for quick entry. Events navigation allows browsing all events from footer.
 
 ### Status Bar (Universal)
 - **Component:** Use shared `StatusBar` from `@/app/components/StatusBar.tsx` on all screens
@@ -425,3 +426,4 @@ app/
 | 2026-04-21 | **App Bar Height Reduced:** App bar standardized across ALL screens to paddingTop=12px, paddingBottom=8px, minHeight=56px (reduced from previous 80px). Improves vertical space efficiency and centers content properly |
 | 2026-04-21 | **Scroll Padding Fixed:** Scrollable containers updated with pb-[222px] class (150px extra clearance + 72px footer height) to prevent content from being hidden behind fixed footer navigation. Logout buttons and other bottom content now fully visible |
 | 2026-04-21 | **Diamond Icon Z-Index Fix:** Home page app bar z-index set to 20 to prevent Daily Login Bonus diamond icon (z-10) from overlapping app bar when scrolling. Ensures proper visual hierarchy |
+| 2026-04-22 | **Bottom Navigation Redesign:** Replaced Parking icon with Events in footer navigation. Parking remains accessible via Home page quick access (Parking button). Events navigation provides convenient access to browse all events. |
