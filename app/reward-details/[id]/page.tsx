@@ -182,9 +182,32 @@ export default function RewardDetailsPage() {
                 <Calendar size={14} style={{ color: "#52525B", flexShrink: 0 }} />
                 <span style={{ fontSize: "12px", color: "#52525B" }}>{reward.validTill}</span>
               </div>
-              <div className="flex items-center gap-1.5 ml-auto">
-                <Coins size={14} style={{ color: "#0E0E10", flexShrink: 0 }} />
-                <span style={{ fontSize: "12px", fontWeight: 600, color: "#0E0E10" }}>{reward.points}</span>
+              <div
+                className="flex items-center gap-2 ml-auto"
+                style={{
+                  background: "#F0F0F0",
+                  paddingLeft: "10px",
+                  paddingRight: "12px",
+                  paddingTop: "6px",
+                  paddingBottom: "6px",
+                  borderRadius: "9999px",
+                }}
+              >
+                <div
+                  style={{
+                    width: "20px",
+                    height: "20px",
+                    borderRadius: "50%",
+                    background: "#FED955",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexShrink: 0,
+                  }}
+                >
+                  <Coins size={12} style={{ color: "#0E0E10" }} />
+                </div>
+                <span style={{ fontSize: "13px", fontWeight: 600, color: "#0E0E10", margin: 0 }}>{reward.points} pts</span>
               </div>
             </div>
           </div>

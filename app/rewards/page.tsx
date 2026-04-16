@@ -190,19 +190,32 @@ function RewardsContent() {
 
                 {/* Points Badge */}
                 <div
-                  className="flex-shrink-0 flex items-center gap-1"
+                  className="flex-shrink-0 flex items-center gap-2"
                   style={{
-                    background: "#E8E8E8",
-                    paddingLeft: "8px",
-                    paddingRight: "8px",
-                    paddingTop: "4px",
-                    paddingBottom: "4px",
-                    borderRadius: "6px",
+                    background: "#F0F0F0",
+                    paddingLeft: "10px",
+                    paddingRight: "12px",
+                    paddingTop: "6px",
+                    paddingBottom: "6px",
+                    borderRadius: "9999px",
                   }}
                 >
-                  <Coins size={14} style={{ color: "#0E0E10", flexShrink: 0 }} />
-                  <p style={{ fontSize: "12px", fontWeight: 600, color: "#0E0E10" }}>
-                    {reward.points}
+                  <div
+                    style={{
+                      width: "20px",
+                      height: "20px",
+                      borderRadius: "50%",
+                      background: "#FED955",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexShrink: 0,
+                    }}
+                  >
+                    <Coins size={12} style={{ color: "#0E0E10" }} />
+                  </div>
+                  <p style={{ fontSize: "13px", fontWeight: 600, color: "#0E0E10", margin: 0 }}>
+                    {reward.points} pts
                   </p>
                 </div>
               </button>
