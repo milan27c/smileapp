@@ -196,7 +196,7 @@ export default function HomePage() {
             className="w-full text-left relative overflow-hidden"
             style={{
               borderRadius: "24px",
-              background: "linear-gradient(135deg, #014D98 0%, #9728B8 55%, #F002AF 100%)",
+              background: "linear-gradient(135deg, #5B4B9F 0%, #9728B8 50%, #D946A6 100%)",
               boxShadow: "0 12px 32px rgba(151,40,184,0.35)",
               border: "none",
               cursor: "pointer",
@@ -211,37 +211,37 @@ export default function HomePage() {
             <div className="absolute" style={{ width: "100px", height: "100px", borderRadius: "50%", background: "rgba(255,255,255,0.04)", bottom: "20px", left: "-30px", pointerEvents: "none" }} />
 
             {/* Top: points + rewards image */}
-            <div className="relative z-10 flex items-start" style={{ padding: "20px 20px 0 20px" }}>
-              <div className="flex-1">
+            <div className="relative z-10 flex items-center justify-between" style={{ padding: "16px 16px 12px 16px" }}>
+              <div>
                 {/* Silver badge */}
-                <div className="flex items-center gap-1.5 px-3 py-1 w-fit mb-3" style={{ background: "rgba(255,255,255,0.18)", borderRadius: "9999px", border: "1px solid rgba(255,255,255,0.35)", backdropFilter: "blur(10px)" }}>
-                  <span style={{ fontSize: "11px", fontWeight: "bold", background: "linear-gradient(135deg, #E8E8E8 0%, #C0C0C0 50%, #A8A8A8 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>★</span>
-                  <span className="font-bold text-white" style={{ fontSize: "10px", letterSpacing: "0.5px" }}>SILVER MEMBER</span>
+                <div className="flex items-center gap-1.5 px-2.5 py-1 w-fit mb-2" style={{ background: "rgba(255,255,255,0.18)", borderRadius: "9999px", border: "1px solid rgba(255,255,255,0.35)", backdropFilter: "blur(10px)" }}>
+                  <span style={{ fontSize: "10px", fontWeight: "bold", background: "linear-gradient(135deg, #E8E8E8 0%, #C0C0C0 50%, #A8A8A8 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>★</span>
+                  <span className="font-bold text-white" style={{ fontSize: "9px", letterSpacing: "0.5px" }}>SILVER MEMBER</span>
                 </div>
                 {/* Points */}
-                <div className="flex items-baseline gap-2 mb-1">
-                  <span className="text-white font-extrabold" style={{ fontSize: "44px", lineHeight: 1, letterSpacing: "-1px" }}>780</span>
-                  <span className="text-white/70 font-medium" style={{ fontSize: "14px" }}>Available Points</span>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-white font-extrabold" style={{ fontSize: "36px", lineHeight: 1, letterSpacing: "-1px" }}>780</span>
+                  <span className="text-white/80 font-medium" style={{ fontSize: "13px" }}>Available Points</span>
                 </div>
                 {/* Expiry */}
-                <p style={{ fontSize: "10px", color: "#FFB3B3" }}>265 Points expire Jan 31, 2026</p>
+                <p style={{ fontSize: "9px", color: "rgba(255, 255, 255, 0.7)", marginTop: "3px", margin: 0 }}>265 Points expire Jan 31, 2026</p>
               </div>
               {/* Smile Rewards image */}
-              <div className="flex-shrink-0" style={{ width: "110px", height: "110px", marginTop: "-4px", marginRight: "-8px" }}>
-                <Image src="/images/smilerewards.png" alt="Smile Rewards" width={110} height={110} style={{ objectFit: "contain" }} />
+              <div className="flex-shrink-0" style={{ width: "90px", height: "90px", marginTop: "-2px", marginRight: "0px" }}>
+                <Image src="/images/smilerewards.png" alt="Smile Rewards" width={90} height={90} style={{ objectFit: "contain" }} />
               </div>
             </div>
 
             {/* Progress bar */}
-            <div className="relative z-10" style={{ padding: "10px 20px 16px 20px" }}>
-              <div className="flex items-center justify-between mb-1.5">
+            <div className="relative z-10" style={{ padding: "8px 16px 16px 16px" }}>
+              <div className="flex items-center justify-between mb-1">
                 <p className="text-white/80 font-medium" style={{ fontSize: "11px" }}>Progress to Platinum</p>
-                <p className="text-white/80" style={{ fontSize: "11px" }}>4250/5000</p>
+                <p className="text-white/80 font-medium" style={{ fontSize: "11px" }}>4250/5000</p>
               </div>
-              <div className="w-full mb-1.5" style={{ height: "6px", borderRadius: "9999px", background: "rgba(255,255,255,0.2)" }}>
+              <div className="w-full mb-1" style={{ height: "6px", borderRadius: "9999px", background: "rgba(255,255,255,0.2)" }}>
                 <div style={{ width: "85%", height: "100%", borderRadius: "9999px", background: "linear-gradient(90deg, #FED955, #FA9E1A)", boxShadow: "0 0 10px rgba(254,217,85,0.4)" }} />
               </div>
-              <p className="text-white/70" style={{ fontSize: "10px" }}>750 more points to unlock Platinum</p>
+              <p className="text-white/70" style={{ fontSize: "10px", margin: 0, marginTop: "4px" }}>750 more points to unlock Platinum</p>
             </div>
           </button>
         </div>
