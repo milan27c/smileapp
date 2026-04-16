@@ -138,17 +138,17 @@ export default function EventDetailsPage() {
 
           {/* Meta row */}
           <div className="flex flex-col gap-2">
-            <div className="flex items-center gap-2">
-              <span style={{ fontSize: "14px" }}>📍</span>
-              <span style={{ fontSize: "13px", color: "#52525B" }}>{event.location}</span>
+            <div className="flex items-center">
+              <span style={{ fontSize: "14px", marginRight: "12px" }}>📍</span>
+              <span style={{ fontSize: "13px", color: "#52525B", marginLeft: "8px" }}>{event.location}</span>
             </div>
-            <div className="flex items-center gap-2">
-              <span style={{ fontSize: "14px" }}>📅</span>
-              <span style={{ fontSize: "13px", color: "#52525B" }}>{event.date}</span>
+            <div className="flex items-center">
+              <span style={{ fontSize: "14px", marginRight: "12px" }}>📅</span>
+              <span style={{ fontSize: "13px", color: "#52525B", marginLeft: "8px" }}>{event.date}</span>
             </div>
-            <div className="flex items-center gap-2">
-              <span style={{ fontSize: "14px" }}>💰</span>
-              <span style={{ fontSize: "13px", fontWeight: 600, color: "#0E0E10" }}>Rs. {event.price.toLocaleString()} per child · {event.ages}</span>
+            <div className="flex items-center">
+              <span style={{ fontSize: "14px", marginRight: "12px" }}>💰</span>
+              <span style={{ fontSize: "13px", fontWeight: 600, color: "#0E0E10", marginLeft: "8px" }}>Rs. {event.price.toLocaleString()} per child · {event.ages}</span>
             </div>
           </div>
         </div>
