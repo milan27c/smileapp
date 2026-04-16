@@ -10,7 +10,6 @@ import {
   Home as HomeIcon,
   MapPin,
   Calendar,
-  Coins,
 } from "lucide-react";
 
 
@@ -210,9 +209,10 @@ function RewardsContent() {
                       alignItems: "center",
                       justifyContent: "center",
                       flexShrink: 0,
+                      fontSize: "12px",
                     }}
                   >
-                    <Coins size={12} style={{ color: "#0E0E10" }} />
+                    🪙
                   </div>
                   <p style={{ fontSize: "13px", fontWeight: 600, color: "#0E0E10", margin: 0 }}>
                     {reward.points} pts

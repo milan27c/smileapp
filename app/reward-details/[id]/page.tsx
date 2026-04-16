@@ -2,7 +2,7 @@
 
 import { useRouter, useParams } from "next/navigation";
 import Image from "next/image";
-import { ChevronLeft, MapPin, Calendar, Coins } from "lucide-react";
+import { ChevronLeft, MapPin, Calendar } from "lucide-react";
 import { useState } from "react";
 
 type Reward = {
@@ -203,9 +203,10 @@ export default function RewardDetailsPage() {
                     alignItems: "center",
                     justifyContent: "center",
                     flexShrink: 0,
+                    fontSize: "12px",
                   }}
                 >
-                  <Coins size={12} style={{ color: "#0E0E10" }} />
+                  🪙
                 </div>
                 <span style={{ fontSize: "13px", fontWeight: 600, color: "#0E0E10", margin: 0 }}>{reward.points} pts</span>
               </div>
