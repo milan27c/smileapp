@@ -7,7 +7,18 @@ import StatusBar from "@/app/components/StatusBar";
 
 
 
-const CHALLENGES_DATA: Record<string, any> = {
+type Challenge = {
+  id: number;
+  title: string;
+  points: number;
+  brand: string;
+  logo: string;
+  completed: number;
+  total: number;
+  rules: string[];
+};
+
+const CHALLENGES_DATA: Record<string, Challenge> = {
   "1": { id: 1, title: "Visit Cargills Food Hall 2 Times", points: 30, brand: "Cargills Food Hall", logo: "/images/Logos/Cargills Food Hall.png", completed: 1, total: 2, rules: ["Each visit must be recorded by scanning the Smile QR code or making an eligible transaction at Cargills Food Hall, Havelock City Mall.", "Multiple visits on the same day will count as one visit only toward this challenge.", "Visits must be completed within the active challenge period shown in the app.", "Smile Points will be automatically credited once all visits are completed."] },
   "2": { id: 2, title: "Spend Rs. 2,000 At Finch Foods", points: 100, brand: "Finch Foods", logo: "/images/Logos/Finch Foods.png", completed: 2, total: 3, rules: ["Total spending must reach Rs. 2,000 or more at Finch Foods.", "All transactions must be recorded through the Smile QR code or the app.", "Spending across multiple days will be accumulated towards the total.", "Smile Points will be credited automatically once the target is reached."] },
   "3": { id: 3, title: "Visit Cool Planet 3 Times", points: 250, brand: "Cool Planet", logo: "/images/Logos/Cool Planet.png", completed: 2, total: 3, rules: ["Each visit must be recorded by scanning the Smile QR code or making an eligible transaction at Cool Planet.", "Multiple visits on the same day will count as one visit only toward this challenge.", "Visits must be completed within the active challenge period shown in the app.", "Smile Points will be automatically credited once all 3 visits are completed."] },
@@ -157,11 +168,15 @@ export default function ChallengeDetailsPage() {
           </p>
 
           <ul style={{ margin: 0, paddingLeft: "20px", listStyle: "disc" }}>
-            {challenge.rules.map((rule, idx) => (
-              <li key={idx} style={{ fontSize: "13px", color: "#52525B", lineHeight: 1.5, marginBottom: "8px" }}>
-                {rule}
-              </li>
-            ))}
+            {challenge.rules && challenge.rules.length > 0 ? (
+              challenge.rules.map((rule, idx) => (
+                <li key={idx} style={{ fontSize: "13px", color: "#52525B", lineHeight: 1.5, marginBottom: "8px" }}>
+                  {rule}
+                </li>
+              ))
+            ) : (
+              <p style={{ fontSize: "13px", color: "#B3B3B4" }}>No rules available</p>
+            )}
           </ul>
         </div>
 
