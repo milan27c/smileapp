@@ -122,27 +122,27 @@ export default function RewardDetailsPage() {
         <div style={{ width: "40px" }} />
       </div>
 
-      {/* Promotional Banner */}
-      <div className="flex-shrink-0 px-4 pt-4 pb-4">
-        <div
-          className="relative overflow-hidden"
-          style={{
-            borderRadius: "20px",
-            height: "180px",
-          }}
-        >
-          <Image
-            src={reward.banner}
-            alt={reward.title}
-            fill
-            style={{ objectFit: "cover" }}
-            unoptimized
-          />
-        </div>
-      </div>
-
       {/* Scrollable content */}
       <div className="flex-1 overflow-y-auto pb-[192px]">
+        {/* Promotional Banner */}
+        <div className="px-4 pt-4 pb-4">
+          <div
+            className="relative overflow-hidden"
+            style={{
+              borderRadius: "20px",
+              height: "180px",
+            }}
+          >
+            <Image
+              src={reward.banner}
+              alt={reward.title}
+              fill
+              style={{ objectFit: "cover" }}
+              unoptimized
+            />
+          </div>
+        </div>
+
         {/* Info card */}
         <div style={{ background: "#fff", padding: "16px 20px", borderBottom: "1px solid #F0F0F0", marginTop: "4px" }}>
           <div className="flex flex-col gap-3">
