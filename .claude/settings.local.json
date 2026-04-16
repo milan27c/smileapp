@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc:*)",
+      "Bash(head -50 /Users/test/smileapp/app/payment-gateway/[id]/page.tsx)",
+      "Bash(head -50 /Users/test/smileapp/app/pay-with-points/[id]/page.tsx)",
+      "Bash(head -50 /Users/test/smileapp/app/challenge-details/[id]/page.tsx)",
+      "Bash(head -50 /Users/test/smileapp/app/event-details/[id]/page.tsx)",
+      "Bash(find app *)"
+    ]
+  }
+}
