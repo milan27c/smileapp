@@ -37,6 +37,10 @@ const allRewards: Reward[] = [
   { id: 5, title: "Full Body Spa Ritual", store: "Spa Ceylon", floor: "Level 3", validTill: "28 Feb 2026", points: 400, category: "Health, Beauty & Wellness", logo: "/images/rewardsscreen/Health Beauty & Wellness/spaceylon.png", banner: "/images/rewardsbanner/spaceylon.png" },
   // Fashion
   { id: 6, title: "Exclusive Designer Collection", store: "Saheli", floor: "Level 1", validTill: "31 Jan 2026", points: 200, category: "Fashion", logo: "/images/rewardsscreen/Fashion/saheli.png", banner: "/images/rewardsbanner/saheli.png" },
+  // Food & Beverages
+  { id: 7, title: "Fresh Produce & Gourmet Deals", store: "Cargills Food Hall", floor: "Ground Floor", validTill: "15 Jan 2026", points: 180, category: "Food & Beverages", logo: "/images/rewardslogos/cargillsfoodhall.png", banner: "/images/rewardsbanner/cargillsfoodhall.png" },
+  // Fashion
+  { id: 8, title: "Exclusive Fashion & Accessories", store: "Odel", floor: "Ground Floor", validTill: "25 Jan 2026", points: 220, category: "Fashion", logo: "/images/rewardslogos/odel.png", banner: "/images/rewardsbanner/odel.png" },
 ];
 
 const categories = [
@@ -91,6 +95,17 @@ function RewardsContent() {
             const hasRewards = cat === "All" || categoriesWithRewards.has(cat);
             const isDisabled = !hasRewards;
 
+            // Define gradient for each category
+            const getGradient = (category: string) => {
+              const gradients: { [key: string]: string } = {
+                "All": "linear-gradient(135deg, #9728B8 0%, #F002AF 100%)",
+                "Fashion": "linear-gradient(135deg, #FA5D3E 0%, #F002AF 100%)",
+                "Food & Beverages": "linear-gradient(135deg, #FFA500 0%, #FA5D3E 100%)",
+                "Health, Beauty & Wellness": "linear-gradient(135deg, #63DBAE 0%, #00C1E2 100%)",
+              };
+              return gradients[category] || "linear-gradient(135deg, #9728B8 0%, #F002AF 100%)";
+            };
+
             return (
               <button
                 key={cat}
@@ -105,9 +120,9 @@ function RewardsContent() {
                   borderRadius: "9999px",
                   fontSize: "12px",
                   fontWeight: 600,
-                  background: isActive ? "#0E0E10" : "transparent",
+                  background: isActive ? getGradient(cat) : "transparent",
                   color: isDisabled ? "#B3B3B4" : isActive ? "#fff" : "#0E0E10",
-                  border: `1.5px solid ${isDisabled ? "#D4D4D8" : "#0E0E10"}`,
+                  border: `1.5px solid ${isDisabled ? "#D4D4D8" : isActive ? "transparent" : "#0E0E10"}`,
                   cursor: isDisabled ? "not-allowed" : "pointer",
                   transition: "all 0.15s",
                   flexShrink: 0,
@@ -164,7 +179,7 @@ function RewardsContent() {
                 </div>
 
                 {/* Details */}
-                <div className="flex-1 flex flex-col justify-center gap-1.5">
+                <div className="flex-1 flex flex-col justify-center gap-1">
                   {/* Title */}
                   <p style={{ fontSize: "14px", fontWeight: 600, color: "#0E0E10", lineHeight: 1.3 }}>
                     {reward.title}
@@ -189,32 +204,18 @@ function RewardsContent() {
 
                 {/* Points Badge */}
                 <div
-                  className="flex-shrink-0 flex items-center gap-2"
+                  className="flex-shrink-0 flex items-center gap-1"
                   style={{
                     background: "#F0F0F0",
-                    paddingLeft: "10px",
-                    paddingRight: "12px",
-                    paddingTop: "6px",
-                    paddingBottom: "6px",
+                    paddingLeft: "8px",
+                    paddingRight: "10px",
+                    paddingTop: "4px",
+                    paddingBottom: "4px",
                     borderRadius: "9999px",
                   }}
                 >
-                  <div
-                    style={{
-                      width: "20px",
-                      height: "20px",
-                      borderRadius: "50%",
-                      background: "#FED955",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      flexShrink: 0,
-                      fontSize: "12px",
-                    }}
-                  >
-                    🪙
-                  </div>
-                  <p style={{ fontSize: "13px", fontWeight: 600, color: "#0E0E10", margin: 0 }}>
+                  <span style={{ fontSize: "14px", flexShrink: 0 }}>🪙</span>
+                  <p style={{ fontSize: "12px", fontWeight: 600, color: "#0E0E10", margin: 0 }}>
                     {reward.points} pts
                   </p>
                 </div>

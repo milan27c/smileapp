@@ -4,7 +4,28 @@ import { useRouter, useParams } from "next/navigation";
 import Image from "next/image";
 import { ChevronLeft, Clock, MapPin } from "lucide-react";
 
+type Reward = {
+  id: number;
+  title: string;
+  store: string;
+  floor: string;
+  validTill: string;
+  points: number;
+  category: string;
+  logo: string;
+  banner: string;
+};
 
+const REWARDS: Reward[] = [
+  { id: 1, title: "Get 20% off on Fashion", store: "Cool Planet", floor: "Ground Floor", validTill: "30 Nov 2025", points: 150, category: "Fashion", logo: "/images/rewardsscreen/Fashion/coolplanet.png", banner: "/images/rewardsbanner/coolplanet.png" },
+  { id: 2, title: "Buy 1 Get 1 Free Burger", store: "Fish & Co.", floor: "Ground Floor", validTill: "15 Dec 2025", points: 120, category: "Food & Beverages", logo: "/images/rewardsscreen/Food and Beverages/fishandco.png", banner: "/images/rewardsbanner/fishandco.png" },
+  { id: 3, title: "15% off All Pizzas", store: "Pizza Hut", floor: "Level 1", validTill: "20 Dec 2025", points: 100, category: "Food & Beverages", logo: "/images/rewardsscreen/Food and Beverages/pizzahut.png", banner: "/images/rewardsbanner/pizzahut.png" },
+  { id: 4, title: "Free Churros on Every Meal", store: "Taco Bell", floor: "Level 2", validTill: "10 Jan 2026", points: 80, category: "Food & Beverages", logo: "/images/rewardsscreen/Food and Beverages/tacobell.png", banner: "/images/rewardsbanner/tacobell.png" },
+  { id: 5, title: "Full Body Spa Ritual", store: "Spa Ceylon", floor: "Level 3", validTill: "28 Feb 2026", points: 400, category: "Health, Beauty & Wellness", logo: "/images/rewardsscreen/Health Beauty & Wellness/spaceylon.png", banner: "/images/rewardsbanner/spaceylon.png" },
+  { id: 6, title: "Exclusive Designer Collection", store: "Saheli", floor: "Level 1", validTill: "31 Jan 2026", points: 200, category: "Fashion", logo: "/images/rewardsscreen/Fashion/saheli.png", banner: "/images/rewardsbanner/saheli.png" },
+  { id: 7, title: "Fresh Produce & Gourmet Deals", store: "Cargills Food Hall", floor: "Ground Floor", validTill: "15 Jan 2026", points: 180, category: "Food & Beverages", logo: "/images/rewardslogos/cargillsfoodhall.png", banner: "/images/rewardsbanner/cargillsfoodhall.png" },
+  { id: 8, title: "Exclusive Fashion & Accessories", store: "Odel", floor: "Ground Floor", validTill: "25 Jan 2026", points: 220, category: "Fashion", logo: "/images/rewardslogos/odel.png", banner: "/images/rewardsbanner/odel.png" },
+];
 
 type ShopData = {
   id: string;
@@ -686,6 +707,82 @@ export default function ShopDetailPage() {
             </div>
           </div>
         </div>
+
+        {/* Rewards Section */}
+        {REWARDS.filter((r) => r.store === shop.name).length > 0 && (
+          <div className="px-4 pb-8">
+            <h2 style={{ fontSize: "16px", fontWeight: 700, color: "#0E0E10", marginBottom: "12px" }}>
+              Available Rewards
+            </h2>
+            <div className="flex flex-col gap-3">
+              {REWARDS.filter((r) => r.store === shop.name).map((reward) => (
+                <button
+                  key={reward.id}
+                  onClick={() => router.push(`/reward-details/${reward.id}`)}
+                  className="flex items-center gap-3 w-full text-left"
+                  style={{
+                    background: "#fff",
+                    borderRadius: "16px",
+                    padding: "14px",
+                    boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
+                    border: "none",
+                    cursor: "pointer",
+                    transition: "all 0.15s",
+                  }}
+                >
+                  {/* Logo */}
+                  <div
+                    className="relative flex-shrink-0 overflow-hidden"
+                    style={{
+                      width: "56px",
+                      height: "56px",
+                      borderRadius: "12px",
+                      background: "#fff",
+                      border: "1px solid #F0F0F0",
+                      boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
+                    }}
+                  >
+                    <Image
+                      src={reward.logo}
+                      alt={reward.store}
+                      fill
+                      style={{ objectFit: "cover" }}
+                      unoptimized
+                    />
+                  </div>
+
+                  {/* Details */}
+                  <div className="flex-1 flex flex-col justify-center gap-1">
+                    <p style={{ fontSize: "14px", fontWeight: 600, color: "#0E0E10", lineHeight: 1.3 }}>
+                      {reward.title}
+                    </p>
+                    <p style={{ fontSize: "12px", color: "#52525B" }}>
+                      Valid till {reward.validTill}
+                    </p>
+                  </div>
+
+                  {/* Points Badge */}
+                  <div
+                    className="flex-shrink-0 flex items-center gap-1"
+                    style={{
+                      background: "#F0F0F0",
+                      paddingLeft: "8px",
+                      paddingRight: "10px",
+                      paddingTop: "4px",
+                      paddingBottom: "4px",
+                      borderRadius: "9999px",
+                    }}
+                  >
+                    <span style={{ fontSize: "14px", flexShrink: 0 }}>🪙</span>
+                    <p style={{ fontSize: "12px", fontWeight: 600, color: "#0E0E10", margin: 0 }}>
+                      {reward.points} pts
+                    </p>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

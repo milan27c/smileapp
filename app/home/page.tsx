@@ -424,7 +424,7 @@ export default function HomePage() {
             <div className="flex gap-3" style={{ width: "fit-content" }}>
               {[
                 { img: "Food & Beverages.png", label: "Food & Beverages", count: 3, category: "Food & Beverages" },
-                { img: "Fashion.png", label: "Fashion", count: 1, category: "Fashion" },
+                { img: "Fashion.png", label: "Fashion", count: 2, category: "Fashion" },
                 { img: "Health, Beauty & Wellness.png", label: "Health & Beauty", count: 1, category: "Health, Beauty & Wellness" },
                 { img: "Entertainment.png", label: "Entertainment", count: 0, category: "Entertainment" },
                 { img: "Electronics & Lifestyle.png", label: "Electronics", count: 0, category: "Electronics & Lifestyle" },
@@ -435,7 +435,7 @@ export default function HomePage() {
               ].map(({ img, label, count, category }) => (
                 <button
                   key={label}
-                  onClick={() => router.push(`/rewards?category=${encodeURIComponent(category)}`)}
+                  onClick={() => count > 0 && router.push(`/rewards?category=${encodeURIComponent(category)}`)}
                   className="relative flex-shrink-0 overflow-hidden text-left"
                   style={{
                     borderRadius: "14px",
@@ -443,8 +443,9 @@ export default function HomePage() {
                     height: "140px",
                     boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
                     border: "none",
-                    cursor: "pointer",
+                    cursor: count > 0 ? "pointer" : "not-allowed",
                     padding: "0",
+                    opacity: count > 0 ? 1 : 0.6,
                   }}
                 >
                   <Image

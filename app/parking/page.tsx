@@ -199,7 +199,7 @@ export default function ParkingPage() {
         background: "#fff", borderBottom: "1px solid #F0F0F0", minHeight: "56px",
       }}
     >
-      <button onClick={() => router.push("/home")} className="flex items-center gap-1">
+      <button onClick={() => router.back()} className="flex items-center gap-1" style={{ background: "none", border: "none", cursor: "pointer" }}>
         <ChevronLeft size={22} style={{ color: "#0E0E10" }} />
         <span style={{ fontSize: "16px", fontWeight: 700, color: "#0E0E10" }}>Parking</span>
       </button>
@@ -295,11 +295,11 @@ export default function ParkingPage() {
           }}
         >
           {[
-            { icon: HomeIcon, label: "Home", route: "/home" },
-            { icon: Gift, label: "Rewards", route: "/rewards" },
-            { icon: Compass, label: "Explore", route: "/explore" },
+            { icon: HomeIcon, label: "Home", route: "/home", active: false },
+            { icon: Gift, label: "Rewards", route: "/rewards", active: false },
+            { icon: Compass, label: "Explore", route: "/explore", active: false },
             { icon: Calendar, label: "Events", route: "/events", active: false },
-            { icon: User, label: "Profile", route: "/profile" },
+            { icon: User, label: "Profile", route: "/profile", active: false },
           ].map(({ icon: Icon, label, route, active }) => (
             <button
               key={label}
@@ -494,11 +494,11 @@ export default function ParkingPage() {
         }}
       >
         {[
-          { icon: HomeIcon, label: "Home", route: "/home" },
-          { icon: Gift, label: "Rewards", route: "/rewards" },
-          { icon: Compass, label: "Explore", route: "/explore" },
-          { icon: Car, label: "Parking", route: "/parking", active: true },
-          { icon: User, label: "Profile", route: "/profile" },
+          { icon: HomeIcon, label: "Home", route: "/home", active: false },
+          { icon: Gift, label: "Rewards", route: "/rewards", active: false },
+          { icon: Compass, label: "Explore", route: "/explore", active: false },
+          { icon: Calendar, label: "Events", route: "/events", active: false },
+          { icon: User, label: "Profile", route: "/profile", active: false },
         ].map(({ icon: Icon, label, route, active }) => (
           <button
             key={label}

@@ -60,9 +60,22 @@ export default function ExplorePage() {
     setActiveCategories([...pendingCategories]);
     setActiveFloors([...pendingFloors]);
     setShowFilter(false);
+
+    const params = new URLSearchParams();
+    if (pendingCategories.length > 0 && !pendingCategories.includes("All")) {
+      params.set("categories", pendingCategories.join(","));
+    }
+    if (pendingFloors.length > 0 && !pendingFloors.includes("All")) {
+      params.set("floors", pendingFloors.join(","));
+    }
+    if (search) params.set("search", search);
+
+    router.push(`/explore/shops?${params.toString()}`);
   };
 
   const handleCategoryClick = (cat: string) => {
+    const newCategories = cat === "All" ? [] : [cat];
+    setActiveCategories(newCategories);
     const params = new URLSearchParams();
     if (cat !== "All") params.set("categories", cat);
     if (activeFloors.length > 0) params.set("floors", activeFloors.join(","));
@@ -255,7 +268,7 @@ export default function ExplorePage() {
                 style={{
                   position: "absolute",
                   right: "16px",
-                  top: "50%",
+                  top: "calc(50% + 16px)",
                   transform: "translateY(-50%)",
                   display: "flex",
                   flexDirection: "column",
@@ -265,7 +278,14 @@ export default function ExplorePage() {
                 {["Level 4", "Level 3", "Level 2", "Level 1", "Ground Floor"].map((floor) => (
                   <button
                     key={floor}
-                    onClick={() => router.push(`/explore/shops?floor=${encodeURIComponent(floor)}`)}
+                    onClick={() => {
+                      setActiveFloors([floor]);
+                      const params = new URLSearchParams();
+                      params.set("floors", floor);
+                      if (activeCategories.length > 0) params.set("categories", activeCategories.join(","));
+                      if (search) params.set("search", search);
+                      router.push(`/explore/shops?${params.toString()}`);
+                    }}
                     style={{
                       background: "rgba(255,255,255,0.92)",
                       border: "none",
