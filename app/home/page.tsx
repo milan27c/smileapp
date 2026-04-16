@@ -261,29 +261,7 @@ export default function HomePage() {
               (e.currentTarget as HTMLButtonElement).style.transform = "scale(1)";
             }}
           >
-            {/* Dark overlay for text contrast */}
-            <div
-              className="absolute inset-0"
-              style={{
-                background: "rgba(0,0,0,0.15)",
-                borderRadius: "16px",
-              }}
-            />
-
-            <div className="relative z-10 flex items-center gap-4">
-              {/* Diamond icon — no background, directly on bg */}
-              <div className="flex-shrink-0 flex items-center justify-center">
-                <Image
-                  src="/images/diamond.png"
-                  alt="Diamond"
-                  width={44}
-                  height={44}
-                  style={{
-                    filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.2))",
-                  }}
-                />
-              </div>
-
+            <div className="flex items-center gap-4">
               {/* Text — white */}
               <div className="flex-1 min-w-0">
                 <p className="font-bold text-white" style={{ fontSize: "14px" }}>
