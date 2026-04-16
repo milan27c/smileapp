@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { ChevronLeft, Crown } from "lucide-react";
+import { ChevronLeft } from "lucide-react";
 
 
 
@@ -291,10 +291,10 @@ export default function PointsPage() {
         <div className="px-4 pb-6">
           <button
             onClick={() => router.push("/platinum")}
-            className="w-full text-left relative overflow-hidden"
+            className="w-full relative overflow-hidden"
             style={{
               borderRadius: "16px",
-              padding: "16px 20px",
+              padding: "20px",
               border: "none",
               cursor: "pointer",
               transition: "all 0.2s",
@@ -303,24 +303,19 @@ export default function PointsPage() {
               backgroundPosition: "center",
               minHeight: "100px",
               display: "flex",
+              flexDirection: "column",
               alignItems: "center",
-              gap: "16px",
+              justifyContent: "center",
+              textAlign: "center",
             }}
           >
-            {/* Crown Icon */}
-            <div style={{ flexShrink: 0 }}>
-              <Crown size={40} style={{ color: "#fff", strokeWidth: 1.5 }} />
-            </div>
-
             {/* Text Content */}
-            <div style={{ flex: 1 }}>
-              <h3 style={{ fontSize: "16px", fontWeight: 700, color: "#fff", margin: 0, marginBottom: "4px" }}>
-                Unlock Platinum Rewards!
-              </h3>
-              <p style={{ fontSize: "12px", color: "rgba(255, 255, 255, 0.9)", lineHeight: 1.4, margin: 0 }}>
-                Explore exclusive benefits and perks
-              </p>
-            </div>
+            <h3 style={{ fontSize: "16px", fontWeight: 700, color: "#fff", margin: 0, marginBottom: "4px" }}>
+              Unlock Platinum Rewards!
+            </h3>
+            <p style={{ fontSize: "12px", color: "rgba(255, 255, 255, 0.9)", lineHeight: 1.4, margin: 0 }}>
+              Explore exclusive benefits and perks
+            </p>
           </button>
         </div>
       </div>
