@@ -217,8 +217,8 @@ export default function ParkingPage() {
             value={letters}
             onChange={(e) => {
               const input = e.target.value;
-              // Allow A-Z, 0-9, and Sinhala characters (U+0D80-U+0DFF)
-              const filtered = input.replace(/[^A-Z0-9\u0D80-\u0DFF\/\s-]/g, "").slice(0, 12);
+              // Allow a-z, A-Z, 0-9, and Sinhala characters (U+0D80-U+0DFF), convert to uppercase
+              const filtered = input.replace(/[^a-zA-Z0-9\u0D80-\u0DFF\/\s-]/g, "").slice(0, 12).toUpperCase();
               setLetters(filtered);
             }}
             placeholder="ABC / 202 / 02ශ්‍රී"
@@ -415,7 +415,7 @@ export default function ParkingPage() {
                   fontSize: "15px", color: "#0E0E10", letterSpacing: "2px",
                 }}
               >
-                {v.letters} {v.numbers}
+                {v.letters.toUpperCase()} {v.numbers}
               </div>
               <div style={{ flex: 1 }}>
                 <p style={{ fontSize: "11px", color: "#52525B" }}>
