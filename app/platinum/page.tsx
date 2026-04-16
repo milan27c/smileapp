@@ -8,10 +8,10 @@ import { ChevronLeft } from "lucide-react";
 
 
 const EXCLUSIVE_OFFERS = [
-  { id: 1, title: "Get 30% off on full priced items", store: "Odel, 1st Floor", validTill: "18 - 19 Nov 2025", points: 150, img: "/images/rewardsscreen/Fashion/cool planet.png" },
-  { id: 2, title: "Triple Points on Every Purchase", store: "Kombu, Ground Floor", validTill: "30 Nov 2025", points: 80, img: "/images/rewardsscreen/Food and Beverages/kombu.png" },
-  { id: 3, title: "Buy 2 Get 1 Free on All Pizzas", store: "The Pizza Co., Level 1", validTill: "15 Dec 2025", points: 120, img: "/images/rewardsscreen/Food and Beverages/pizzas.png" },
-  { id: 4, title: "Exclusive Spa Package Deal", store: "Spa Ceylon, Level 3", validTill: "28 Feb 2026", points: 200, img: "/images/rewardsscreen/Health Beauty & Wellness/spa ceylon.png" },
+  { id: 8, title: "Get 30% off on full priced items", store: "Odel, 1st Floor", validTill: "18 - 19 Nov 2025", points: 150, img: "/images/rewardslogos/odel.png" },
+  { id: 2, title: "Triple Points on Every Purchase", store: "Cargills Food Hall, Ground Floor", validTill: "30 Nov 2025", points: 80, img: "/images/rewardslogos/cargillsfoodhall.png" },
+  { id: 3, title: "Buy 2 Get 1 Free on All Pizzas", store: "Pizza Hut, Level 1", validTill: "15 Dec 2025", points: 120, img: "/images/rewardslogos/pizzahut.png" },
+  { id: 5, title: "Exclusive Spa Package Deal", store: "Spa Ceylon, Level 3", validTill: "28 Feb 2026", points: 200, img: "/images/rewardslogos/spaceylon.png" },
 ];
 
 const TIER_CONFIG = {
@@ -95,77 +95,6 @@ export default function PlatinumPage() {
           </p>
         </div>
 
-        {/* Exclusive Offers - Only for Platinum */}
-        {activeTier === "platinum" && (
-          <div style={{ marginBottom: "24px" }}>
-            <h3 style={{ fontSize: "16px", fontWeight: 600, color: "#0E0E10", marginBottom: "12px" }}>
-              🎉 Exclusive Offers
-            </h3>
-            <div className="flex gap-3 overflow-x-auto no-scrollbar" style={{ paddingBottom: "4px" }}>
-              {EXCLUSIVE_OFFERS.map((offer) => (
-                <div key={offer.id} style={{
-                  background: "#fff",
-                  borderRadius: "16px",
-                  border: "1px solid #F0F0F0",
-                  overflow: "hidden",
-                  display: "flex",
-                  gap: "14px",
-                  padding: "14px",
-                  flexShrink: 0,
-                  width: "291px",
-                }}>
-                  {/* Image */}
-                  <div style={{
-                    position: "relative",
-                    width: "80px",
-                    height: "80px",
-                    flexShrink: 0,
-                    borderRadius: "12px",
-                    overflow: "hidden",
-                    background: "#FAFAFA",
-                  }}>
-                    <Image
-                      src={offer.img}
-                      alt={offer.title}
-                      fill
-                      style={{ objectFit: "cover" }}
-                    />
-                  </div>
-
-                  {/* Details */}
-                  <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between", minWidth: 0 }}>
-                    <div style={{ minWidth: 0 }}>
-                      <p style={{ fontSize: "12px", fontWeight: 600, color: "#0E0E10", marginBottom: "6px", lineHeight: 1.2, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
-                        {offer.title}
-                      </p>
-                      <p style={{ fontSize: "10px", color: "#52525B", marginBottom: "4px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
-                        📍 {offer.store}
-                      </p>
-                      <p style={{ fontSize: "10px", color: "#52525B", marginBottom: "6px" }}>
-                        📅 {offer.validTill}
-                      </p>
-                    </div>
-                    <button style={{
-                      height: "28px",
-                      borderRadius: "8px",
-                      border: "1.5px solid #9728B8",
-                      background: "#fff",
-                      color: "#9728B8",
-                      fontSize: "11px",
-                      fontWeight: 600,
-                      cursor: "pointer",
-                      transition: "all 0.2s",
-                      padding: "0 10px",
-                    }}>
-                      Redeem
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
         {/* Benefits Card */}
         <div style={{
           background: "#fff",
@@ -219,6 +148,76 @@ export default function PlatinumPage() {
           </div>
         </div>
 
+        {/* Exclusive Offers - Only for Platinum */}
+        {activeTier === "platinum" && (
+          <div style={{ marginBottom: "24px" }}>
+            <h3 style={{ fontSize: "16px", fontWeight: 600, color: "#0E0E10", marginBottom: "12px" }}>
+              🎉 Exclusive Offers
+            </h3>
+            <div className="flex gap-3 overflow-x-auto no-scrollbar" style={{ paddingBottom: "4px" }}>
+              {EXCLUSIVE_OFFERS.map((offer) => (
+                <div key={offer.id} style={{
+                  background: "#fff",
+                  borderRadius: "16px",
+                  border: "1px solid #F0F0F0",
+                  overflow: "hidden",
+                  display: "flex",
+                  gap: "14px",
+                  padding: "14px",
+                  flexShrink: 0,
+                  width: "291px",
+                }}>
+                  {/* Image */}
+                  <div style={{
+                    position: "relative",
+                    width: "60px",
+                    height: "60px",
+                    flexShrink: 0,
+                    borderRadius: "12px",
+                    overflow: "hidden",
+                    background: "#FAFAFA",
+                  }}>
+                    <Image
+                      src={offer.img}
+                      alt={offer.title}
+                      fill
+                      style={{ objectFit: "contain" }}
+                    />
+                  </div>
+
+                  {/* Details */}
+                  <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between", minWidth: 0 }}>
+                    <div style={{ minWidth: 0 }}>
+                      <p style={{ fontSize: "12px", fontWeight: 600, color: "#0E0E10", marginBottom: "6px", lineHeight: 1.2, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                        {offer.title}
+                      </p>
+                      <p style={{ fontSize: "10px", color: "#52525B", marginBottom: "4px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                        📍 {offer.store}
+                      </p>
+                      <p style={{ fontSize: "10px", color: "#52525B", marginBottom: "6px" }}>
+                        📅 {offer.validTill}
+                      </p>
+                    </div>
+                    <button style={{
+                      height: "28px",
+                      borderRadius: "8px",
+                      border: "1.5px solid #9728B8",
+                      background: "#fff",
+                      color: "#9728B8",
+                      fontSize: "11px",
+                      fontWeight: 600,
+                      cursor: "pointer",
+                      transition: "all 0.2s",
+                      padding: "0 10px",
+                    }}>
+                      Redeem
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
       </div>
     </div>
