@@ -74,13 +74,15 @@ export default function EventsPage() {
         </button>
       </div>
 
-      {/* Hero Banner Card */}
-      <div className="px-4 pt-4 flex-shrink-0">
+      {/* Events List */}
+      <div className="flex-1 overflow-y-auto px-4 pt-4 pb-6">
+        {/* Hero Banner Card */}
         <div style={{
           position: "relative",
           borderRadius: "20px",
           overflow: "hidden",
           boxShadow: "0 4px 16px rgba(0,0,0,0.1)",
+          marginBottom: "16px",
         }}>
           {/* Background image at natural size */}
           <Image
@@ -114,10 +116,7 @@ export default function EventsPage() {
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Events List */}
-      <div className="flex-1 overflow-y-auto px-4 pt-5 pb-6">
         <h2 style={{ fontSize: "16px", fontWeight: 700, color: "#0E0E10", marginBottom: "14px" }}>
           Upcoming Events
         </h2>

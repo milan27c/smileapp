@@ -109,27 +109,26 @@ export default function EventDetailsPage() {
   return (
     <div className="flex flex-col h-full" style={{ background: "#F5F5F7", fontFamily: "'Inter', sans-serif" }}>
 
-      {/* Hero Image */}
-      <div style={{ position: "relative", height: "240px", flexShrink: 0, overflow: "hidden" }}>
-        <Image
-          src={event.img}
-          alt={event.title}
-          fill
-          style={{ objectFit: "cover" }}
-          unoptimized
-        />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.5) 100%)" }} />
-        <button
-          onClick={() => router.back()}
-          className="absolute flex items-center gap-1"
-          style={{ top: "48px", left: "20px", background: "none", border: "none", cursor: "pointer", zIndex: 10 }}
-        >
-          <ChevronLeft size={22} style={{ color: "#fff" }} />
-        </button>
-      </div>
-
       {/* Scrollable content */}
       <div className="flex-1 overflow-y-auto pb-[192px]">
+        {/* Hero Image */}
+        <div style={{ position: "relative", height: "240px", overflow: "hidden", marginBottom: "0" }}>
+          <Image
+            src={event.img}
+            alt={event.title}
+            fill
+            style={{ objectFit: "cover" }}
+            unoptimized
+          />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.5) 100%)" }} />
+          <button
+            onClick={() => router.back()}
+            className="absolute flex items-center gap-1"
+            style={{ top: "48px", left: "20px", background: "none", border: "none", cursor: "pointer", zIndex: 10 }}
+          >
+            <ChevronLeft size={22} style={{ color: "#fff" }} />
+          </button>
+        </div>
         {/* Title card */}
         <div style={{ background: "#fff", padding: "20px 20px 16px", borderBottom: "1px solid #F0F0F0" }}>
           <h1 style={{ fontSize: "18px", fontWeight: 800, color: "#0E0E10", lineHeight: 1.3, marginBottom: "12px" }}>
