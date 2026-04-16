@@ -21,7 +21,7 @@ export default function StatusBar({ light = false }: { light?: boolean }) {
         9:41
       </span>
 
-      {/* Dynamic Island pill — center */}
+      {/* Dynamic Island pill — center (hidden on desktop) */}
       <div
         style={{
           position: "absolute",
@@ -32,6 +32,7 @@ export default function StatusBar({ light = false }: { light?: boolean }) {
           height: "34px",
           borderRadius: "20px",
           background: "#000",
+          display: "none",
         }}
       />
 
