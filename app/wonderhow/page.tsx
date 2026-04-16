@@ -189,22 +189,100 @@ export default function WonderHowPage() {
           </div>
         </div>
 
-        {/* CTA Button */}
+        {/* Platinum Membership Card */}
         <div style={{ marginBottom: "24px" }}>
-          <button onClick={() => router.push("/platinum")} style={{
-            width: "100%",
-            height: "48px",
-            borderRadius: "12px",
-            background: "#9728B8",
-            color: "#fff",
-            fontSize: "15px",
-            fontWeight: 600,
-            border: "none",
-            cursor: "pointer",
-            transition: "all 0.2s",
-          }}>
-            Explore Tier Benefits
-          </button>
+          <button
+            onClick={() => router.push("/platinum")}
+            className="w-full relative overflow-hidden"
+            style={{
+              borderRadius: "16px",
+              padding: "20px",
+              border: "none",
+              cursor: "pointer",
+              transition: "all 0.2s",
+              backgroundImage: "url(/images/platinummember.png)",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              minHeight: "100px",
+            }}
+          />
+        </div>
+
+        {/* Exclusive Offers Section */}
+        <div style={{ marginBottom: "20px" }}>
+          <h3 style={{ fontSize: "16px", fontWeight: 600, color: "#0E0E10", marginBottom: "12px" }}>
+            Exclusive Offers
+          </h3>
+          <div className="flex flex-col gap-3">
+            {[
+              { id: 1, title: "Cool Planet", points: 150, logo: "/images/rewardslogos/coolplanet.png" },
+              { id: 2, title: "Cargills Food Hall", points: 180, logo: "/images/rewardslogos/cargillsfoodhall.png" },
+              { id: 3, title: "Odel", points: 220, logo: "/images/rewardslogos/odel.png" },
+              { id: 6, title: "Saheli", points: 200, logo: "/images/rewardslogos/saheli.png" },
+            ].map((reward) => (
+              <button
+                key={reward.id}
+                onClick={() => router.push(`/reward-details/${reward.id}`)}
+                className="flex items-center gap-3 w-full text-left"
+                style={{
+                  background: "#fff",
+                  borderRadius: "12px",
+                  padding: "12px",
+                  boxShadow: "0 1px 6px rgba(0,0,0,0.06)",
+                  border: "none",
+                  cursor: "pointer",
+                  transition: "all 0.15s",
+                }}
+              >
+                {/* Logo */}
+                <div
+                  className="relative flex-shrink-0 overflow-hidden"
+                  style={{
+                    width: "48px",
+                    height: "48px",
+                    borderRadius: "10px",
+                    background: "#F5F5F7",
+                    border: "1px solid #F0F0F0",
+                  }}
+                >
+                  <Image
+                    src={reward.logo}
+                    alt={reward.title}
+                    fill
+                    style={{ objectFit: "cover" }}
+                  />
+                </div>
+
+                {/* Details */}
+                <div className="flex-1">
+                  <p style={{ fontSize: "13px", fontWeight: 600, color: "#0E0E10" }}>
+                    {reward.title}
+                  </p>
+                  <p style={{ fontSize: "11px", color: "#52525B", marginTop: "2px" }}>
+                    Tap to redeem
+                  </p>
+                </div>
+
+                {/* Points Badge */}
+                <div
+                  className="flex-shrink-0 flex items-center gap-1"
+                  style={{
+                    background: "#F0F0F0",
+                    paddingLeft: "8px",
+                    paddingRight: "10px",
+                    paddingTop: "4px",
+                    paddingBottom: "4px",
+                    borderRadius: "9999px",
+                  }}
+                >
+                  <span style={{ fontSize: "12px", flexShrink: 0 }}>🪙</span>
+                  <p style={{ fontSize: "11px", fontWeight: 600, color: "#0E0E10", margin: 0 }}>
+                    {reward.points}
+                  </p>
+                </div>
+              </button>
+            ))}
+          </div>
         </div>
 
       </div>
