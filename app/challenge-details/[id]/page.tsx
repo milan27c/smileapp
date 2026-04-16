@@ -37,7 +37,7 @@ export default function ChallengeDetailsPage() {
       <div className="flex flex-col h-full" style={{ background: "#F5F5F7" }}>
         <StatusBar />
         <div className="flex-shrink-0 flex items-center px-5"
-          style={{ paddingTop: "48px", paddingBottom: "12px", minHeight: "80px", borderBottom: "1px solid #F0F0F0", background: "#fff" }}>
+          style={{ paddingTop: "12px", paddingBottom: "8px", minHeight: "56px", borderBottom: "1px solid #F0F0F0", background: "#fff" }}>
           <button onClick={() => router.back()} className="flex items-center gap-1">
             <ChevronLeft size={22} style={{ color: "#0E0E10" }} />
             <span style={{ fontSize: "16px", fontWeight: 700, color: "#0E0E10" }}>Challenge Details</span>
@@ -59,7 +59,7 @@ export default function ChallengeDetailsPage() {
 
       {/* App Bar */}
       <div className="flex-shrink-0 flex items-center px-5"
-        style={{ paddingTop: "48px", paddingBottom: "12px", minHeight: "80px", borderBottom: "1px solid #F0F0F0", background: "#fff" }}>
+        style={{ paddingTop: "12px", paddingBottom: "8px", minHeight: "56px", borderBottom: "1px solid #F0F0F0", background: "#fff" }}>
         <button onClick={() => router.back()} className="flex items-center gap-1">
           <ChevronLeft size={22} style={{ color: "#0E0E10" }} />
           <span style={{ fontSize: "16px", fontWeight: 700, color: "#0E0E10" }}>Challenge Details</span>

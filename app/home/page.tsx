@@ -121,7 +121,7 @@ export default function HomePage() {
       </div>
 
       {/* ── Scrollable Content ── */}
-      <div className="flex-1 overflow-y-auto no-scrollbar" style={{ paddingBottom: "80px" }}>
+      <div className="flex-1 overflow-y-auto no-scrollbar pb-[150px]" style={{ paddingBottom: "80px" }}>
         {/* ── Sliders (Horizontal Scroll) ── */}
         <div
           className="overflow-x-auto no-scrollbar"

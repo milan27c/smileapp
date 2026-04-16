@@ -9,7 +9,10 @@
       "Bash(find app *)",
       "Bash(git add *)",
       "Bash(git commit *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(grep -n \"paddingTop.*48px\" /Users/test/smileapp/app/**/*.tsx)",
+      "Bash(find /Users/test/smileapp/app -name \"page.tsx\" -type f -exec sed -i '' 's/paddingTop: \"48px\", paddingBottom: \"12px\", minHeight: \"80px\"/paddingTop: \"12px\", paddingBottom: \"8px\", minHeight: \"56px\"/g' {} \\\\;)",
+      "Bash(find /Users/test/smileapp/app -name \"page.tsx\" -type f -exec sed -i '' 's/overflow-y-auto no-scrollbar\"/overflow-y-auto no-scrollbar pb-[150px]\"/g' {} \\\\;)"
     ]
   }
 }

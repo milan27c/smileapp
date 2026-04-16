@@ -80,7 +80,7 @@ export default function SpinWheelPage() {
       {/* App Bar */}
       <div
         className="flex-shrink-0 flex items-center px-5"
-        style={{ paddingTop: "48px", paddingBottom: "12px", minHeight: "80px", background: "transparent" }}
+        style={{ paddingTop: "12px", paddingBottom: "8px", minHeight: "56px", background: "transparent" }}
       >
         <button onClick={() => router.back()} className="flex items-center gap-1">
           <ChevronLeft size={22} style={{ color: "#0E0E10" }} />
