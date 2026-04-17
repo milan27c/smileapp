@@ -100,7 +100,31 @@ export default function HomePage() {
           style={{ paddingLeft: "16px", paddingRight: "16px", paddingTop: "12px", paddingBottom: "16px" }}
         >
           <div className="flex gap-3" style={{ width: "fit-content" }}>
-            {/* Slider 1 — Clickable card for promo details */}
+            {/* Slider 1 — Clickable card for event */}
+            <button
+              onClick={() => router.push("/event-details/0")}
+              className="relative flex-shrink-0 overflow-hidden"
+              style={{
+                borderRadius: "20px",
+                width: "320px",
+                height: "192px",
+                border: "none",
+                cursor: "pointer",
+                background: "none",
+                padding: "0",
+                transition: "transform 0.2s",
+              }}
+            >
+              <Image
+                src="/images/slider3.png"
+                alt="Event"
+                fill
+                style={{ objectFit: "cover" }}
+                priority
+              />
+            </button>
+
+            {/* Slider 2 — Clickable card for promo details */}
             <button
               onClick={() => router.push("/promo-detail")}
               className="relative flex-shrink-0 overflow-hidden"
@@ -120,11 +144,10 @@ export default function HomePage() {
                 alt="Promo 1"
                 fill
                 style={{ objectFit: "cover" }}
-                priority
               />
             </button>
 
-            {/* Slider 2 — Clickable card for challenges */}
+            {/* Slider 3 — Clickable card for challenges */}
             <button
               onClick={() => router.push("/challenges")}
               className="relative flex-shrink-0 overflow-hidden"
@@ -142,29 +165,6 @@ export default function HomePage() {
               <Image
                 src="/images/slider2.png"
                 alt="Promo 2"
-                fill
-                style={{ objectFit: "cover" }}
-              />
-            </button>
-
-            {/* Slider 3 — Clickable card for event */}
-            <button
-              onClick={() => router.push("/event-details/0")}
-              className="relative flex-shrink-0 overflow-hidden"
-              style={{
-                borderRadius: "20px",
-                width: "320px",
-                height: "192px",
-                border: "none",
-                cursor: "pointer",
-                background: "none",
-                padding: "0",
-                transition: "transform 0.2s",
-              }}
-            >
-              <Image
-                src="/images/slider3.png"
-                alt="Event"
                 fill
                 style={{ objectFit: "cover" }}
               />
