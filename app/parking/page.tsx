@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { ChevronLeft, Plus, Clock, Home as HomeIcon, Gift, Compass, Calendar, User } from "lucide-react";
+import { ChevronLeft, Plus, Clock } from "lucide-react";
 import { useState, useEffect } from "react";
 
 interface Vehicle {
@@ -199,7 +199,7 @@ export default function ParkingPage() {
         background: "#fff", borderBottom: "1px solid #F0F0F0", minHeight: "56px",
       }}
     >
-      <button onClick={() => router.back()} className="flex items-center gap-1" style={{ background: "none", border: "none", cursor: "pointer" }}>
+      <button onClick={() => router.push("/home")} className="flex items-center gap-1" style={{ background: "none", border: "none", cursor: "pointer" }}>
         <ChevronLeft size={22} style={{ color: "#0E0E10" }} />
         <span style={{ fontSize: "16px", fontWeight: 700, color: "#0E0E10" }}>Parking</span>
       </button>
@@ -284,36 +284,6 @@ export default function ParkingPage() {
               Add Vehicle
             </button>
           </div>
-        </div>
-
-        {/* ── Bottom Navigation ── */}
-        <div
-          className="absolute bottom-0 left-0 right-0 flex items-center"
-          style={{
-            height: "72px", background: "#fff",
-            borderTop: "1px solid #F0F0F0", boxShadow: "0 -4px 20px rgba(0,0,0,0.06)", zIndex: 10,
-          }}
-        >
-          {[
-            { icon: HomeIcon, label: "Home", route: "/home", active: false },
-            { icon: Gift, label: "Rewards", route: "/rewards", active: false },
-            { icon: Compass, label: "Explore", route: "/explore", active: false },
-            { icon: Calendar, label: "Events", route: "/events", active: false },
-            { icon: User, label: "Profile", route: "/profile", active: false },
-          ].map(({ icon: Icon, label, route, active }) => (
-            <button
-              key={label}
-              onClick={() => router.push(route)}
-              className="flex-1 flex flex-col items-center justify-center gap-1"
-            >
-              <div style={{ width: "36px", height: "28px", borderRadius: "9999px", background: active ? "rgba(151,40,184,0.12)" : "transparent", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <Icon size={20} style={{ color: active ? "#9728B8" : "#B3B3B4", strokeWidth: active ? 2.5 : 1.75 }} />
-              </div>
-              <span style={{ fontSize: "10px", color: active ? "#9728B8" : "#B3B3B4", fontWeight: 600 }}>
-                {label}
-              </span>
-            </button>
-          ))}
         </div>
       </div>
     );
@@ -483,36 +453,6 @@ export default function ParkingPage() {
             </div>
           </div>
         )}
-      </div>
-
-      {/* ── Bottom Navigation ── */}
-      <div
-        className="absolute bottom-0 left-0 right-0 flex items-center"
-        style={{
-          height: "72px", background: "#fff",
-          borderTop: "1px solid #F0F0F0", boxShadow: "0 -4px 20px rgba(0,0,0,0.06)", zIndex: 10,
-        }}
-      >
-        {[
-          { icon: HomeIcon, label: "Home", route: "/home", active: false },
-          { icon: Gift, label: "Rewards", route: "/rewards", active: false },
-          { icon: Compass, label: "Explore", route: "/explore", active: false },
-          { icon: Calendar, label: "Events", route: "/events", active: false },
-          { icon: User, label: "Profile", route: "/profile", active: false },
-        ].map(({ icon: Icon, label, route, active }) => (
-          <button
-            key={label}
-            onClick={() => router.push(route)}
-            className="flex-1 flex flex-col items-center justify-center gap-1"
-          >
-            <div style={{ width: "36px", height: "28px", borderRadius: "9999px", background: active ? "rgba(151,40,184,0.12)" : "transparent", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <Icon size={20} style={{ color: active ? "#9728B8" : "#B3B3B4", strokeWidth: active ? 2.5 : 1.75 }} />
-            </div>
-            <span style={{ fontSize: "10px", color: active ? "#9728B8" : "#B3B3B4", fontWeight: 600 }}>
-              {label}
-            </span>
-          </button>
-        ))}
       </div>
     </div>
   );
