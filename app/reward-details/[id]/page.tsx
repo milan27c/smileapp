@@ -185,30 +185,14 @@ export default function RewardDetailsPage() {
               <div
                 className="flex items-center gap-2 ml-auto"
                 style={{
-                  background: "#F0F0F0",
                   paddingLeft: "10px",
                   paddingRight: "12px",
                   paddingTop: "6px",
                   paddingBottom: "6px",
-                  borderRadius: "9999px",
                 }}
               >
-                <div
-                  style={{
-                    width: "20px",
-                    height: "20px",
-                    borderRadius: "50%",
-                    background: "#FED955",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    flexShrink: 0,
-                    fontSize: "12px",
-                  }}
-                >
-                  🪙
-                </div>
-                <span style={{ fontSize: "13px", fontWeight: 600, color: "#0E0E10", margin: 0 }}>{reward.points} pts</span>
+                <span style={{ fontSize: "16px" }}>🪙</span>
+                <span style={{ fontSize: "13px", fontWeight: 600, color: "#0E0E10" }}>{reward.points} pts</span>
               </div>
             </div>
           </div>

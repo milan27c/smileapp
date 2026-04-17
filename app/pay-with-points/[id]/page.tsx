@@ -8,6 +8,7 @@ import { ChevronLeft, Check } from "lucide-react";
 
 
 const EVENTS: Record<string, any> = {
+  "0": { id: 0, img: "/images/slider3.png", title: "Grand Year-End Celebration", date: "Dec 28, 2025", session: "Session 1 — 10:00 AM", price: 5000, points: 800 },
   "1": { id: 1, img: "/images/events/events1.png", title: "A Fun Filled Christmas Party — Just For Kids", date: "Dec 13, 2025", session: "Session 1 — 11:00 AM", price: 3500, points: 700 },
   "2": { id: 2, img: "/images/events/events2.png", title: "New Year Countdown Gala", date: "Dec 31, 2025", session: "Session 1 — 08:00 PM", price: 2500, points: 500 },
   "3": { id: 3, img: "/images/events/events3.png", title: "Elf Magic Show & Face Painting", date: "Dec 20, 2025", session: "Session 1 — 10:00 AM", price: 1500, points: 300 },
