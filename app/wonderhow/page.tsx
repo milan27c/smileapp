@@ -100,7 +100,7 @@ export default function WonderHowPage() {
               flexShrink: 0,
             }}>
               <Image
-                src="/images/bronze.png"
+                src="/images/Bronze.png"
                 alt="Bronze Tier"
                 fill
                 style={{ objectFit: "contain" }}
@@ -171,7 +171,7 @@ export default function WonderHowPage() {
               flexShrink: 0,
             }}>
               <Image
-                src="/images/platinum.png"
+                src="/images/Platinum.png"
                 alt="Platinum Tier"
                 fill
                 style={{ objectFit: "contain" }}

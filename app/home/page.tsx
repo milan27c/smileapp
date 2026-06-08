@@ -63,7 +63,7 @@ export default function HomePage() {
             }}
           >
             <Image
-              src="/images/silver.png"
+              src="/images/Silver.png"
               alt="Silver Member"
               width={16}
               height={16}
