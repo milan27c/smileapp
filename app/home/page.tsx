@@ -116,7 +116,7 @@ export default function HomePage() {
               }}
             >
               <Image
-                src="/images/slider3.png"
+                src="/images/slider-lego.png"
                 alt="Event"
                 fill
                 style={{ objectFit: "cover" }}
@@ -288,9 +288,9 @@ export default function HomePage() {
           >
             <div className="flex gap-3" style={{ width: "fit-content" }}>
               {[
-                { id: 0, img: "/images/slider3.png", title: "Grand Year-End Celebration", date: "Dec 28, 2025" },
-                { id: 1, img: "/images/events/events1.png", title: "A Fun Filled Christmas Party", date: "Dec 13, 2025" },
-                { id: 2, img: "/images/events/events2.png", title: "New Year Countdown Gala",    date: "Dec 31, 2025" },
+                { id: 0, img: "/images/slider-lego.png", title: "LEGO Play Zone at Havelock City Mall", date: "06 & 07 June 2026" },
+                { id: 1, img: "/images/events/events1.png", title: "Checkmate 2026 — Chess Fiesta", date: "20th & 21st June 2026" },
+                { id: 2, img: "/images/events/events6.png", title: "Creative Kids Workshop — 40th Edition", date: "16th & 17th May" },
               ].map((ev) => (
                 <button
                   key={ev.id}

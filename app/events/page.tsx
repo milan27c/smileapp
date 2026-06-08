@@ -9,39 +9,39 @@ import { Home as HomeIcon, Gift, Compass, Calendar, User } from "lucide-react";
 const EVENTS = [
   {
     id: 0,
-    img: "/images/slider3.png",
-    title: "Grand Year-End Celebration",
-    date: "Dec 28, 2025",
-    location: "Havelock City Mall",
-    price: "Rs. 5,000 per person",
+    img: "/images/slider-lego.png",
+    title: "LEGO Play Zone at Havelock City Mall",
+    date: "06 & 07 June 2026",
+    location: "Havelock City Mall Atrium Lobby",
+    price: "LKR 500",
     ages: "All ages",
     points: 800,
   },
   {
     id: 1,
     img: "/images/events/events1.png",
-    title: "A Fun Filled Christmas Party — Just For Kids",
-    date: "Dec 13, 2025",
-    location: "Havelock City Mall",
-    price: "Rs. 3,500 per child",
-    ages: "Ages 4–12",
+    title: "Checkmate 2026 — Chess Fiesta",
+    date: "20th & 21st June 2026",
+    location: "Havelock City Mall – Level 01, Atrium Lobby",
+    price: "Free Entry",
+    ages: "Ages 8 & Above",
     points: 700,
   },
   {
     id: 2,
-    img: "/images/events/events2.png",
-    title: "New Year Countdown Gala",
-    date: "Dec 31, 2025",
-    location: "Havelock City Mall",
-    price: "Rs. 2,500 per person",
-    ages: "All ages",
+    img: "/images/events/events6.png",
+    title: "Creative Kids Workshop — 40th Edition",
+    date: "16th & 17th May",
+    location: "Havelock City Mall – Level 4",
+    price: "RS. 2500/-",
+    ages: "Ages 3–10",
     points: 500,
   },
   {
     id: 3,
     img: "/images/events/events3.png",
     title: "Elf Magic Show & Face Painting",
-    date: "Dec 20, 2025",
+    date: "Dec 20, 2026",
     location: "Havelock City Mall",
     price: "Rs. 1,500 per child",
     ages: "Ages 3–10",
@@ -51,7 +51,7 @@ const EVENTS = [
     id: 4,
     img: "/images/events/events4.png",
     title: "Santa's Cookie Decoration Workshop",
-    date: "Dec 21, 2025",
+    date: "Dec 21, 2026",
     location: "Havelock City Mall",
     price: "Rs. 1,200 per child",
     ages: "Ages 5–12",
@@ -61,7 +61,7 @@ const EVENTS = [
     id: 5,
     img: "/images/events/events5.png",
     title: "Christmas Card Making Contest",
-    date: "Dec 22, 2025",
+    date: "Dec 22, 2026",
     location: "Havelock City Mall",
     price: "Rs. 800 per child",
     ages: "Ages 6–14",
@@ -165,7 +165,7 @@ export default function EventsPage() {
                 <p style={{ fontSize: "14px", fontWeight: 700, color: "#0E0E10", lineHeight: 1.3, marginBottom: "6px" }}>
                   {event.title}
                 </p>
-                <div className="flex items-center gap-4">
+                <div className="flex flex-col gap-1">
                   <p style={{ fontSize: "11px", color: "#52525B" }}>📍 {event.location}</p>
                   <p style={{ fontSize: "11px", color: "#52525B" }}>📅 {event.date}</p>
                 </div>
