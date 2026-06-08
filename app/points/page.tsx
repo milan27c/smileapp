@@ -1,15 +1,54 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { ChevronLeft } from "lucide-react";
+import { ChevronLeft, Receipt, Upload, X, CheckCircle, Camera } from "lucide-react";
 
 
 
 export default function PointsPage() {
   const router = useRouter();
   const [activeTab, setActiveTab] = useState<"earned" | "redeemed">("earned");
+  const [showClaimModal, setShowClaimModal] = useState(false);
+  const [billPhoto, setBillPhoto] = useState<string | null>(null);
+  const [submitted, setSubmitted] = useState(false);
+  const [showCamera, setShowCamera] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const streamRef = useRef<MediaStream | null>(null);
+
+  const openCamera = async () => {
+    setShowCamera(true);
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" }, audio: false });
+      streamRef.current = stream;
+      if (videoRef.current) {
+        videoRef.current.srcObject = stream;
+        videoRef.current.play();
+      }
+    } catch {
+      setShowCamera(false);
+      alert("Camera access denied. Please allow camera permission and try again.");
+    }
+  };
+
+  const stopCamera = () => {
+    streamRef.current?.getTracks().forEach((t) => t.stop());
+    streamRef.current = null;
+    setShowCamera(false);
+  };
+
+  const capturePhoto = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    const canvas = document.createElement("canvas");
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    canvas.getContext("2d")?.drawImage(video, 0, 0);
+    setBillPhoto(canvas.toDataURL("image/jpeg"));
+    stopCamera();
+  };
 
   const earnedTransactions = [
     { id: 1, date: "Jan 17, 2026", merchant: "Daily Check in Points", points: "+10", description: "Check in:", expiry: "Expire On: Jan 17, 2027" },
@@ -287,6 +326,27 @@ export default function PointsPage() {
           })()}
         </div>
 
+        {/* Claim Missed Rewards Button */}
+        <div className="px-4 pb-4">
+          <button
+            onClick={() => { setShowClaimModal(true); setBillPhoto(null); setSubmitted(false); }}
+            className="w-full flex items-center justify-center gap-2"
+            style={{
+              height: "48px",
+              background: "white",
+              border: "1.5px solid #0E0E10",
+              borderRadius: "12px",
+              color: "#0E0E10",
+              fontSize: "15px",
+              fontWeight: 600,
+              cursor: "pointer",
+            }}
+          >
+            <Receipt size={18} />
+            Claim Missed Rewards
+          </button>
+        </div>
+
         {/* Platinum Membership Card */}
         <div className="px-4 pb-6">
           <button
@@ -306,6 +366,166 @@ export default function PointsPage() {
           />
         </div>
       </div>
+
+      {/* Camera Overlay */}
+      {showCamera && (
+        <div className="absolute inset-0 z-[60] flex flex-col" style={{ background: "#000" }}>
+          <video
+            ref={videoRef}
+            autoPlay
+            playsInline
+            muted
+            style={{ flex: 1, width: "100%", objectFit: "cover" }}
+          />
+          <div className="flex items-center justify-between px-8 py-6" style={{ background: "#000" }}>
+            <button onClick={stopCamera} style={{ color: "white", fontSize: 14, background: "none", border: "none", cursor: "pointer" }}>
+              <X size={28} color="white" />
+            </button>
+            <button
+              onClick={capturePhoto}
+              style={{
+                width: 72, height: 72, borderRadius: 9999,
+                background: "white", border: "5px solid rgba(255,255,255,0.4)",
+                cursor: "pointer",
+              }}
+            />
+            <div style={{ width: 28 }} />
+          </div>
+        </div>
+      )}
+
+      {/* Claim Missed Rewards Modal */}
+      {showClaimModal && (
+        <div
+          className="absolute inset-0 z-50 flex items-end justify-center"
+          style={{ background: "rgba(0,0,0,0.45)" }}
+          onClick={(e) => { if (e.target === e.currentTarget) { setShowClaimModal(false); } }}
+        >
+          <div
+            className="w-full"
+            style={{
+              background: "white",
+              borderRadius: "24px 24px 0 0",
+              padding: "24px 20px 40px",
+            }}
+          >
+            {/* Handle */}
+            <div className="flex justify-center mb-5">
+              <div style={{ width: 40, height: 4, borderRadius: 9999, background: "#D4D4D8" }} />
+            </div>
+
+            {submitted ? (
+              /* Success state */
+              <div className="flex flex-col items-center text-center py-6 gap-4">
+                <div
+                  style={{
+                    width: 72, height: 72, borderRadius: 9999,
+                    background: "#F3E8FF",
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                  }}
+                >
+                  <CheckCircle size={36} color="#9728B8" />
+                </div>
+                <div>
+                  <p style={{ fontSize: 17, fontWeight: 700, color: "#0E0E10", marginBottom: 8 }}>Bill Submitted!</p>
+                  <p style={{ fontSize: 14, color: "#52525B", lineHeight: 1.5 }}>
+                    Your bill has been submitted for review. Once verified, your rewards will be added automatically.
+                  </p>
+                </div>
+                <button
+                  onClick={() => setShowClaimModal(false)}
+                  style={{
+                    marginTop: 8, height: 48, width: "100%", borderRadius: 12,
+                    background: "#9728B8", color: "white", fontSize: 15, fontWeight: 600, border: "none", cursor: "pointer",
+                  }}
+                >
+                  Done
+                </button>
+              </div>
+            ) : (
+              /* Upload state */
+              <>
+                <p style={{ fontSize: 18, fontWeight: 700, color: "#0E0E10", marginBottom: 4 }}>Claim Missed Rewards</p>
+                <p style={{ fontSize: 14, color: "#52525B", marginBottom: 20, lineHeight: 1.5 }}>
+                  Forgot to scan at the store? Upload your bill photo and we'll verify & add your points.
+                </p>
+
+                {/* Hidden inputs */}
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  accept="image/*"
+                  style={{ display: "none" }}
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    if (file) setBillPhoto(URL.createObjectURL(file));
+                  }}
+                />
+
+                {/* Preview or action buttons */}
+                {billPhoto ? (
+                  <div style={{ borderRadius: 16, overflow: "hidden", border: "2px solid #9728B8", height: 160 }}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={billPhoto} alt="Bill" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                  </div>
+                ) : (
+                  <div className="flex gap-3">
+                    <button
+                      onClick={openCamera}
+                      className="flex-1 flex flex-col items-center justify-center gap-2"
+                      style={{
+                        height: 110, borderRadius: 16,
+                        border: "2px dashed #D4D4D8",
+                        background: "#F5F5F7",
+                        cursor: "pointer",
+                      }}
+                    >
+                      <Camera size={28} color="#9728B8" />
+                      <span style={{ fontSize: 13, color: "#52525B", fontWeight: 500 }}>Take Photo</span>
+                    </button>
+                    <button
+                      onClick={() => fileInputRef.current?.click()}
+                      className="flex-1 flex flex-col items-center justify-center gap-2"
+                      style={{
+                        height: 110, borderRadius: 16,
+                        border: "2px dashed #D4D4D8",
+                        background: "#F5F5F7",
+                        cursor: "pointer",
+                      }}
+                    >
+                      <Upload size={28} color="#9728B8" />
+                      <span style={{ fontSize: 13, color: "#52525B", fontWeight: 500 }}>Upload from Gallery</span>
+                    </button>
+                  </div>
+                )}
+
+                {billPhoto && (
+                  <button
+                    onClick={() => setBillPhoto(null)}
+                    style={{ marginTop: 8, background: "none", border: "none", cursor: "pointer", color: "#52525B", fontSize: 13, display: "flex", alignItems: "center", gap: 4 }}
+                  >
+                    <X size={14} /> Remove photo
+                  </button>
+                )}
+
+                <button
+                  disabled={!billPhoto}
+                  onClick={() => setSubmitted(true)}
+                  style={{
+                    marginTop: 20, height: 48, width: "100%", borderRadius: 12,
+                    background: billPhoto ? "#9728B8" : "#D4D4D8",
+                    color: "white", fontSize: 15, fontWeight: 600, border: "none",
+                    cursor: billPhoto ? "pointer" : "not-allowed",
+                    transition: "background 0.2s",
+                  }}
+                >
+                  Submit Bill
+                </button>
+              </>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
