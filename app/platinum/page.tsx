@@ -68,7 +68,7 @@ export default function PlatinumPage() {
               flexShrink: 0,
             }}>
               <Image
-                src={`/images/${tier}.png`}
+                src={`/images/${tier.charAt(0).toUpperCase() + tier.slice(1)}.png`}
                 alt={TIER_CONFIG[tier].name}
                 fill
                 style={{ objectFit: "contain" }}
